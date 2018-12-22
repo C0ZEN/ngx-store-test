@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { AppDevModule } from './app.dev.module';
+import { AppProdModule } from './app.prod.module';
 import { NavbarModule } from './components/navbar/navbar.module';
 
 @NgModule({
@@ -21,10 +21,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
     AppRoutingModule,
 
     // Third parties
-    environment.production ? null : AkitaNgDevtools.forRoot({
-      logTrace: true
-    }),
-    environment.production ? null : AkitaNgRouterStoreModule.forRoot(),
+    environment.production ? AppProdModule : AppDevModule,
 
     // App
     NavbarModule

@@ -39,7 +39,12 @@
               "commonChunk": true,
               "verbose": false,
               "sourceMap": true,
-              "optimization": false
+              "optimization": false,
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/assets/styles"
+                ]
+              }
             },
             "production": {
               "fileReplacements": [

@@ -1,11 +1,16 @@
+@import 'imports';
+
 .navbar-component {
   .mat-toolbar {
+    @include mat-elevation(5);
+
     .left-content {
       display: flex;
     }
     .right-content {
       display: flex;
       margin-left: auto;
+      height: 100%;
     }
   }
 }
