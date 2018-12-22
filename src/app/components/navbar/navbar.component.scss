@@ -1,0 +1,11 @@
+.navbar-component {
+  .mat-toolbar {
+    .left-content {
+      display: flex;
+    }
+    .right-content {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+}
