@@ -1,29 +1,26 @@
 import {
-  ApplicationRef,
+  enableProdMode,
   NgModuleRef
 } from '@angular/core';
-import {
-  createNewHosts,
-  hmrModule
-} from '@angularclass/hmr';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-export const hmrBootstrap: any = (
-  module: any,
-  bootstrap: () => Promise<NgModuleRef<any>>
-): void => {
-  let ngModule: NgModuleRef<any>;
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+import { hmrBootstrap } from './hmr';
 
-  module.hot.accept();
+if (environment.production) {
+  enableProdMode();
+}
 
-  bootstrap().then((mod: any) => {
-    ngModule = mod;
-    return hmrModule(mod, module);
-  });
+const bootstrap: any = (): Promise<NgModuleRef<AppModule>> => platformBrowserDynamic().bootstrapModule(AppModule);
 
-  module.hot.dispose(() => {
-    const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
-    const elements: any = appRef.components.map((c: any) => c.location.nativeElement);
-    const makeVisible: Function = createNewHosts(elements);
-    makeVisible();
-  });
-};
+if (environment.hmr.isEnabled) {
+  if ((module as any)['hot']) {
+    hmrBootstrap(module, bootstrap);
+  } else {
+    console.error('HMR is not enabled for webpack-dev-server !');
+    console.log('Are you using the --hmr flag for ng serve ?');
+  }
+} else {
+  bootstrap().catch((err: any) => console.log(err));
+}

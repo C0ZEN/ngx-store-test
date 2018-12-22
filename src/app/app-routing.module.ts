@@ -12,17 +12,21 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './pages/home/home.module#HomeModule'
+    loadChildren: './views/home/home.module#HomeModule'
   },
   {
     path: '**',
-    loadChildren: './pages/home/home.module#HomeModule'
+    loadChildren: './views/home/home.module#HomeModule'
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule {
 }
