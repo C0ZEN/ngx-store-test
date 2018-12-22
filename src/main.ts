@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import {
+  akitaConfig,
   enableAkitaProdMode,
   persistState
 } from '@datorama/akita';
@@ -19,6 +20,10 @@ if (environment.production) {
 }
 
 persistState();
+
+akitaConfig({
+  resettable: true
+});
 
 const bootstrap: any = (): Promise<NgModuleRef<AppModule>> => platformBrowserDynamic().bootstrapModule(AppModule);
 
