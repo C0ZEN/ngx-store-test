@@ -1,3 +1,30 @@
-<div class="home-component">
+<div class="home-component content-container">
+  <h1 class="mat-h1">Purpose</h1>
 
+  <!-- TD;DR -->
+  <h3 class="mat-h3">TL;DR</h3>
+  <p class="mat-body">
+    This project is used as an experimental playground for Angular projects.
+    <br>
+    It is useful to refer it and use it to copy and paste some configuration files and checkout the cool features than it can provide.
+  </p>
+
+  <!-- Configuration -->
+  <h3 class="mat-h3 no-margin">Configuration</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let item of configurationItems">
+      <mat-icon matListIcon
+                [svgIcon]="item.icon">
+      </mat-icon>
+      <p matLine
+         class="mat-body">
+        {{ item.label }}
+      </p>
+      <p *ngIf="item.description"
+         matLine
+         class="mat-small color-grey white-space-normal">
+        {{ item.description }}
+      </p>
+    </mat-list-item>
+  </mat-list>
 </div>

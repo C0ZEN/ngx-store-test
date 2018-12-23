@@ -1,4 +1,4 @@
-import { NavbarLinkInterface } from './navbar-link.interface';
+import { NavbarLinkInterface } from '../interfaces/navbar-link.interface';
 
 export const NavbarLinks: NavbarLinkInterface[] = [
   {

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 224 224" width="96px" height="96px">
+  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none"
+     stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+    <path d="M0,224v-224h224v224z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"/>
+    <g id="two_x5F_tone">
+      <g fill="#673ab7" stroke="none" stroke-width="1" stroke-linejoin="miter" opacity="0.3">
+        <rect x="4" y="4" transform="scale(9.33333,9.33333)" width="16" height="6"/>
+      </g>
+      <rect x="8" y="10" transform="scale(9.33333,9.33333)" width="2" height="10" fill="#673ab7" stroke="none"
+            stroke-width="1" stroke-linejoin="miter"/>
+      <rect x="15" y="-17" transform="rotate(90) scale(9.33333,9.33333)" width="2" height="5" fill="#673ab7"
+            stroke="none" stroke-width="1" stroke-linejoin="miter"/>
+      <rect x="12" y="-17" transform="rotate(90) scale(9.33333,9.33333)" width="2" height="5" fill="#673ab7"
+            stroke="none" stroke-width="1" stroke-linejoin="miter"/>
+      <path
+        d="M177.33333,186.66667c5.152,0 9.33333,-4.18133 9.33333,-9.33333v-130.66667c0,-5.152 -4.18133,-9.33333 -9.33333,-9.33333h-130.66667c-5.152,0 -9.33333,4.18133 -9.33333,9.33333v130.66667c0,5.152 4.18133,9.33333 9.33333,9.33333z"
+        fill="none" stroke="#673ab7" stroke-width="18.66667" stroke-linejoin="round"/>
+      <path d="M37.33333,93.33333h149.33333" fill="none" stroke="#673ab7" stroke-width="18.66667"
+            stroke-linejoin="round"/>
+      <circle cx="7" cy="7" transform="scale(9.33333,9.33333)" r="1" fill="#673ab7" stroke="none" stroke-width="1"
+              stroke-linejoin="miter"/>
+      <circle cx="10" cy="7" transform="scale(9.33333,9.33333)" r="1" fill="#673ab7" stroke="none" stroke-width="1"
+              stroke-linejoin="miter"/>
+      <path d="M121.33333,65.33333h37.33333" fill="none" stroke="#673ab7" stroke-width="18.66667"
+            stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+// white-space-normal
+.white-space-normal {
+  white-space: normal;
+}
+
+.mat-list-base .mat-list-item .mat-line.white-space-normal {
+  @extend .white-space-normal
+}

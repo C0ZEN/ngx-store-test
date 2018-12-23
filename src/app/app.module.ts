@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
@@ -18,6 +19,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
     // Angular
     CommonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
 
     // Third parties

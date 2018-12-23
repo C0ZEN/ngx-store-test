@@ -2,8 +2,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { NavbarLinkInterface } from './navbar-link.interface';
-import { NavbarLinks } from './navbar.data';
+import { NavbarLinks } from './data/navbar-links.data';
+import { NavbarLinkInterface } from './interfaces/navbar-link.interface';
 
 @Component({
   selector: 'app-navbar',
