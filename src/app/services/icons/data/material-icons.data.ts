@@ -13,5 +13,13 @@ export const MaterialIcons: MaterialIconsIconInterface[] = [
   {
     name: MaterialIconsEnum.WEB_DESIGN,
     path: 'material/icons8-web-design.svg'
+  },
+  {
+    name: MaterialIconsEnum.CREATE_ICON,
+    path: 'material/icons8-create-icon.svg'
+  },
+  {
+    name: MaterialIconsEnum.RULES,
+    path: 'material/icons8-rules.svg'
   }
 ];

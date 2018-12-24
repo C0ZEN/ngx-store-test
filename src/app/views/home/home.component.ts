@@ -2,8 +2,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { HomeConfigurationItems } from './data/home-configuration-items.data';
-import { HomeConfigurationItemInterface } from './interfaces/home-configuration-item.interface';
+import { HomeConfigurationCategories } from './data/home-configuration-categories.data';
+import { HomeConfigurationCategoryInterface } from './interfaces/home-configuration-category.interface';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { HomeConfigurationItemInterface } from './interfaces/home-configuration-
   styleUrls: [ './home.component.scss' ]
 })
 export class HomeComponent implements OnInit {
-  public configurationItems: HomeConfigurationItemInterface[] = HomeConfigurationItems;
+  public configurationCategories: HomeConfigurationCategoryInterface[] = HomeConfigurationCategories;
 
   public constructor() {
   }

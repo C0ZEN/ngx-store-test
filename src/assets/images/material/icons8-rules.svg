@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 224 224" width="96px" height="96px">
+  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="miter"
+     stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+    <path d="M0,224v-224h224v224z" fill="none" stroke="none" stroke-width="1"/>
+    <g id="Two_Tone">
+      <path
+        d="M140,37.33333c-10.31333,0 -18.66667,8.35333 -18.66667,18.66667v18.66667h-65.33333v93.33333c0,10.31333 8.35333,18.66667 18.66667,18.66667h84v-93.33333v-18.66667v-18.66667c0,-10.31333 -8.35333,-18.66667 -18.66667,-18.66667z"
+        fill="#673ab7" stroke="none" stroke-width="1" opacity="0.3"/>
+      <path d="M177.33333,186.66667c10.31333,0 18.66667,-8.35333 18.66667,-18.66667v-18.66667h-37.33333" fill="none"
+            stroke="#673ab7" stroke-width="18.66667"/>
+      <path
+        d="M140,37.33333c-10.31333,0 -18.66667,8.35333 -18.66667,18.66667v18.66667h-93.33333v-18.66667c0,-10.31333 8.35333,-18.66667 18.66667,-18.66667h93.33333"
+        fill="none" stroke="#673ab7" stroke-width="18.66667"/>
+      <path
+        d="M56,74.66667v93.33333c0,10.31333 8.35333,18.66667 18.66667,18.66667h102.66667c-10.31333,0 -18.66667,-8.35333 -18.66667,-18.66667v-112c0,-10.31333 -8.35333,-18.66667 -18.66667,-18.66667"
+        fill="none" stroke="#673ab7" stroke-width="18.66667"/>
+      <rect x="9" y="15" transform="scale(9.33333,9.33333)" width="5" height="2" fill="#673ab7" stroke="none"
+            stroke-width="1"/>
+      <rect x="9" y="11" transform="scale(9.33333,9.33333)" width="5" height="2" fill="#673ab7" stroke="none"
+            stroke-width="1"/>
+    </g>
+  </g>
+</svg>

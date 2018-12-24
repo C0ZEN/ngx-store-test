@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 224 224" width="96px" height="96px">
+  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="none" stroke-linejoin="miter"
+     stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+    <path d="M0,224v-224h224v224z" fill="none" stroke="none" stroke-width="1" stroke-linecap="butt"/>
+    <g id="Two_Tone">
+      <path d="M93.33333,186.66667l-18.66667,-37.33333l37.33333,-65.33333l37.33333,65.33333l-18.66667,37.33333z"
+            fill="#673ab7" stroke="none" stroke-width="1" stroke-linecap="butt" opacity="0.3"/>
+      <path d="M46.66667,121.33333h-37.33333v37.33333h37.33333z" fill="#673ab7" stroke="none" stroke-width="1"
+            stroke-linecap="butt"/>
+      <path d="M130.66667,28h-37.33333v37.33333h37.33333z" fill="#673ab7" stroke="none" stroke-width="1"
+            stroke-linecap="butt"/>
+      <path d="M214.66667,121.33333h-37.33333v37.33333h37.33333z" fill="#673ab7" stroke="none" stroke-width="1"
+            stroke-linecap="butt"/>
+      <path d="M196,130.66667c0,-46.396 -37.604,-84 -84,-84v0v0c-46.396,0 -84,37.604 -84,84" fill="none"
+            stroke="#673ab7" stroke-width="18.66667" stroke-linecap="butt"/>
+      <path d="M93.33333,186.66667l-18.66667,-37.33333l37.33333,-65.33333l37.33333,65.33333l-18.66667,37.33333z"
+            fill="none" stroke="#673ab7" stroke-width="18.66667" stroke-linecap="butt"/>
+      <path d="M112,149.33333v-56" fill="none" stroke="#673ab7" stroke-width="18.66667" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
