@@ -21,5 +21,9 @@ export const MaterialIcons: MaterialIconsIconInterface[] = [
   {
     name: MaterialIconsEnum.RULES,
     path: 'material/icons8-rules.svg'
+  },
+  {
+    name: MaterialIconsEnum.CUBE,
+    path: 'material/icons8-cube.svg'
   }
 ];

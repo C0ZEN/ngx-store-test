@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 224 224" width="96px" height="96px">
+  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+     stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+    <path d="M0,224v-224h224v224z" fill="none"/>
+    <g id="Two_Tone" fill="#673ab7">
+      <path d="M186.66667,74.66667v112h-112l-37.33333,-37.33333v-112h112z" opacity="0.3"/>
+      <path
+        d="M195.272,71.07333c-0.476,-1.13867 -1.15733,-2.156 -2.016,-3.01467l-37.324,-37.324c-1.74533,-1.75467 -4.12533,-2.73467 -6.59867,-2.73467h-112c-1.21333,0 -2.42667,0.24267 -3.56533,0.71867c-2.28667,0.94267 -4.10667,2.76267 -5.04933,5.04933c-0.46667,1.13867 -0.71867,2.352 -0.71867,3.56533v112c0,2.48267 0.98,4.85333 2.73467,6.59867l37.324,37.324c0.85867,0.85867 1.876,1.54 3.01467,2.016c1.12933,0.476 2.352,0.728 3.59333,0.728h112c5.152,0 9.33333,-4.172 9.33333,-9.33333v-112c0,-1.25067 -0.252,-2.464 -0.728,-3.59333zM164.136,65.33333h-85.60533l-18.66667,-18.66667h85.60533zM84,177.33333v-93.33333h93.33333v93.33333z"/>
+    </g>
+  </g>
+</svg>

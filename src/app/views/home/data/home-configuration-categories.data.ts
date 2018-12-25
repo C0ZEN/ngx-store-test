@@ -22,6 +22,13 @@ export const HomeConfigurationCategories: HomeConfigurationCategoryInterface[] =
         description: 'The Hot Module Replacement is useful to speedup the development time by recompiling only changed files. This ' +
           'should be configured for each Angular project without a doubt.',
         icon: MaterialIconsEnum.SPEED
+      },
+      {
+        label: 'Lazy loading',
+        description: 'The Lazy loading will load only modules which are used by the current app route. This allow the app and webpack ' +
+          'to load the files only when it is required to do so. This is a good practice to reduce the chunk size and decrease the time ' +
+          'required to have access to the first app screen.',
+        icon: MaterialIconsEnum.CUBE
       }
     ]
   },
