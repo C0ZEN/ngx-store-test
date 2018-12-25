@@ -1,0 +1,7 @@
+@import 'imports';
+
+.toolbar-component {
+  .mat-toolbar {
+    @include mat-elevation(2);
+  }
+}

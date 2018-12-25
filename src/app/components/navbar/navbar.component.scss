@@ -1,6 +1,8 @@
 @import 'imports';
 
 .navbar-component {
+  display: flex; // Required to allow visibility of elevation (box-shadow) on top of below mat-toolbar
+
   .mat-toolbar {
     @include mat-elevation(5);
 

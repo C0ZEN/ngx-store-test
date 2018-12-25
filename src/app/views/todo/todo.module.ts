@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 import { TodoRoutingModule } from './todo-routing.module';
 
 import { TodoComponent } from './todo.component';
@@ -10,7 +11,8 @@ import { TodoComponent } from './todo.component';
   ],
   imports: [
     CommonModule,
-    TodoRoutingModule
+    TodoRoutingModule,
+    ToolbarModule
   ]
 })
 export class TodoModule {
