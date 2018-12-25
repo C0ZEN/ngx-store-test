@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 224 224" width="96px" height="96px">
+  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+     stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+    <path d="M0,224v-224h224v224z" fill="none"/>
+    <g id="Two-Tone" fill="#673ab7">
+      <g opacity="0.3">
+        <circle cx="12" cy="12" transform="scale(9.33333,9.33333)" r="9"/>
+      </g>
+      <path d="M149.33333,121.33333h-28v28h-18.66667v-28h-28v-18.66667h28v-28h18.66667v28h28z"/>
+      <path
+        d="M112,205.33333c-51.464,0 -93.33333,-41.86933 -93.33333,-93.33333c0,-51.464 41.86933,-93.33333 93.33333,-93.33333c51.464,0 93.33333,41.86933 93.33333,93.33333c0,51.464 -41.86933,93.33333 -93.33333,93.33333zM112,37.33333c-41.16933,0 -74.66667,33.49733 -74.66667,74.66667c0,41.16933 33.49733,74.66667 74.66667,74.66667c41.16933,0 74.66667,-33.49733 74.66667,-74.66667c0,-41.16933 -33.49733,-74.66667 -74.66667,-74.66667z"/>
+    </g>
+  </g>
+</svg>

@@ -1,7 +1,16 @@
 <div class="todo-component">
 
   <!-- Toolbar -->
-  <app-toolbar></app-toolbar>
+  <app-toolbar>
+
+    <!-- New todo list button -->
+    <button mat-mini-fab
+            color="accent"
+            matTooltip="New todo list"
+            matTooltipPosition="after">
+      <mat-icon svgIcon="white-add"></mat-icon>
+    </button>
+  </app-toolbar>
 
   <!-- Content -->
   <div class="content-container"></div>
