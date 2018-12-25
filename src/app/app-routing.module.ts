@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: './views/home/home.module#HomeModule'
   },
   {
+    path: 'todo',
+    loadChildren: './views/todo/todo.module#TodoModule'
+  },
+  {
     path: '**',
     loadChildren: './views/home/home.module#HomeModule'
   }
