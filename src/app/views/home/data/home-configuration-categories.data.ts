@@ -48,5 +48,16 @@ export const HomeConfigurationCategories: HomeConfigurationCategoryInterface[] =
         icon: MaterialIconsEnum.CREATE_ICON
       }
     ]
+  },
+  {
+    name: 'Logs',
+    items: [
+      {
+        label: 'NGX Logger',
+        description: 'This project use a third party library to wrap all the logs to easily manage them between environments. It also ' +
+          'allows to send the logs directly to a server.',
+        icon: MaterialIconsEnum.INDEX
+      }
+    ]
   }
 ];

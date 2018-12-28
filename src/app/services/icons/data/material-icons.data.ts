@@ -31,6 +31,10 @@ export const MaterialIcons: MaterialIconsIconInterface[] = [
     name: MaterialIconsEnum.ADD_CIRCLE,
     path: 'material/primary/icons8-add-circle.svg'
   },
+  {
+    name: MaterialIconsEnum.INDEX,
+    path: 'material/primary/icons8-index.svg'
+  },
   // WHITE
   {
     name: MaterialIconsEnum.WHITE_ADD,

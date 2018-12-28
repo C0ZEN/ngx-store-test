@@ -7,6 +7,7 @@ export enum MaterialIconsEnum {
   RULES = 'rules',
   CUBE = 'cube',
   ADD_CIRCLE = 'add-circle',
+  INDEX = 'index',
   // WHITE
   WHITE_ADD = 'white-add',
   WHITE_ADD_CIRCLE = 'white-add-circle'
