@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  LoggerModule,
+  NgxLoggerLevel
+} from 'ngx-logger';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,10 +26,17 @@ import { NavbarModule } from './components/navbar/navbar.module';
     HttpClientModule,
     AppRoutingModule,
 
-    // Third parties
+    // Third parties specific to the project mod
     environment.production ? AppProdModule : AppDevModule,
 
-    // App
+    // Third parties
+    LoggerModule.forRoot({
+      disableConsoleLogging: false,
+      level: NgxLoggerLevel.TRACE,
+      serverLogLevel: NgxLoggerLevel.OFF
+    }),
+
+    // Internal
     NavbarModule
   ],
   bootstrap: [

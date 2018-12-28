@@ -19,8 +19,12 @@ const routes: Routes = [
     loadChildren: './views/todo/todo.module#TodoModule'
   },
   {
+    path: 'error',
+    loadChildren: './views/error/error.module#ErrorModule'
+  },
+  {
     path: '**',
-    loadChildren: './views/home/home.module#HomeModule'
+    redirectTo: '/error/view-not-found'
   }
 ];
 

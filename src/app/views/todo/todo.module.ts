@@ -15,12 +15,18 @@ import { TodoComponent } from './todo.component';
     TodoComponent
   ],
   imports: [
+
+    // Angular
     CommonModule,
-    TodoRoutingModule,
-    ToolbarModule,
+
+    // Third parties
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+
+    // Internal
+    TodoRoutingModule,
+    ToolbarModule
   ]
 })
 export class TodoModule {

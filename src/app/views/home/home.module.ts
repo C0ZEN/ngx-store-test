@@ -13,10 +13,16 @@ import { HomeComponent } from './home.component';
     HomeComponent
   ],
   imports: [
+
+    // Angular
     CommonModule,
-    HomeRoutingModule,
+
+    // Third parties
     MatListModule,
-    MatIconModule
+    MatIconModule,
+
+    // Internal
+    HomeRoutingModule
   ]
 })
 export class HomeModule {

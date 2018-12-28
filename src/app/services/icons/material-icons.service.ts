@@ -9,7 +9,10 @@ import { MaterialIconsIconInterface } from './interfaces/material-icons-icon.int
   providedIn: 'root'
 })
 export class MaterialIconsService {
-  public constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+  public constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
   }
 
   public fetchIcons(): void {
