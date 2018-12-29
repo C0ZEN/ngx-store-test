@@ -1,26 +1,16 @@
 .tabs-fit-height {
-  &.mat-tab-group {
-    height: 100%;
-  }
-
+  &.mat-tab-nav-bar,
+  &.mat-tab-group,
+  .mat-tab-labels,
+  .mat-tab-link,
+  .mat-tab-links,
+  .mat-tab-label,
   .mat-tab-header {
-    height: 100%;
-  }
-
-  .mat-tab-links {
-    height: 100%;
-  }
-
-  .mat-tab-link {
     height: 100%;
   }
 
   .mat-tab-labels {
     align-items: center;
-    height: 100%;
-  }
-
-  .mat-tab-label {
     height: 100%;
   }
 }

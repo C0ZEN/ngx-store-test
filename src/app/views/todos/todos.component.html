@@ -5,16 +5,23 @@
     <div class="todos-toolbar-content">
 
       <!-- Todo tab list -->
-      <mat-tab-group *ngIf="todos.length > 0"
-                     class="tabs-fit-height"
-                     color="primary"
-                     backgroundColor="primary"
-                     [dynamicHeight]="true">
-        <mat-tab *ngFor="let todo of todos"
-                 [id]="todo.id"
-                 [label]="todo.name">
-        </mat-tab>
-      </mat-tab-group>
+      <nav *ngIf="todos.length > 0"
+           mat-tab-nav-bar
+           class="tabs-fit-height"
+           backgroundColor="primary"
+           color="primary">
+
+        <!-- Todo tab -->
+        <a mat-tab-link
+           *ngFor="let todo of todos"
+           [id]="todo.id"
+           [routerLink]="'todo/' + todo.id"
+           routerLinkActive
+           #rla="routerLinkActive"
+           [active]="rla.isActive">
+          {{ todo.name }}
+        </a>
+      </nav>
 
       <!-- New todo button -->
       <button id="new-todo-button"
