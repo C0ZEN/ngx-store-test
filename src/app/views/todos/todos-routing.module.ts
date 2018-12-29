@@ -4,11 +4,18 @@ import {
   Routes
 } from '@angular/router';
 import { TodosComponent } from './todos.component';
+import { TodosTodoComponent } from './views/todo/todos-todo.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TodosComponent
+    component: TodosComponent,
+    children: [
+      {
+        path: 'todo/:todoId',
+        component: TodosTodoComponent
+      }
+    ]
   }
 ];
 

@@ -9,6 +9,7 @@ import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 import { TodosRoutingModule } from './todos-routing.module';
 
 import { TodosComponent } from './todos.component';
+import { TodosTodoModule } from './views/todo/todos-todo.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { TodosComponent } from './todos.component';
 
     // Internal
     TodosRoutingModule,
-    ToolbarModule
+    ToolbarModule,
+
+    // Children
+    TodosTodoModule
   ]
 })
 export class TodosModule {
