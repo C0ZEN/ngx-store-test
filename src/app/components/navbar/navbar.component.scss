@@ -6,9 +6,12 @@
   .mat-toolbar {
     @include mat-elevation(5);
 
+    z-index: 1;
+
     .left-content {
       display: flex;
     }
+
     .right-content {
       display: flex;
       margin-left: auto;
