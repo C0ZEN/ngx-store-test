@@ -2,26 +2,30 @@
 
   <!-- Toolbar -->
   <app-toolbar>
+    <div class="todos-toolbar-content">
 
-    <!-- Todo tab list -->
-    <mat-tab-group *ngIf="todos.length > 0"
-                   class="tabs-fit-height"
-                   color="accent"
-                   [dynamicHeight]="true">
-      <mat-tab *ngFor="let todo of todos"
-               [id]="todo.id"
-               [label]="todo.name">
-      </mat-tab>
-    </mat-tab-group>
+      <!-- Todo tab list -->
+      <mat-tab-group *ngIf="todos.length > 0"
+                     class="tabs-fit-height"
+                     color="accent"
+                     [dynamicHeight]="true">
+        <mat-tab *ngFor="let todo of todos"
+                 [id]="todo.id"
+                 [label]="todo.name">
+        </mat-tab>
+      </mat-tab-group>
 
-    <!-- New todo button -->
-    <button (click)="newTodo()"
-            color="accent"
-            mat-mini-fab
-            matTooltip="New todo"
-            matTooltipPosition="after">
-      <mat-icon svgIcon="white-add"></mat-icon>
-    </button>
+      <!-- New todo button -->
+      <button id="new-todo-button"
+              (click)="newTodo()"
+              class="small"
+              color="accent"
+              mat-mini-fab
+              matTooltip="New todo"
+              matTooltipPosition="after">
+        <mat-icon svgIcon="white-add"></mat-icon>
+      </button>
+    </div>
   </app-toolbar>
 
   <!-- Content -->

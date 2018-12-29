@@ -1,0 +1,20 @@
+.mat-mini-fab {
+  &.small {
+    height: 32px;
+    width: 32px;
+
+    .mat-icon {
+      height: 18px;
+      width: 18px;
+    }
+
+    .mat-button-wrapper {
+      padding: 0;
+      line-height: normal;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

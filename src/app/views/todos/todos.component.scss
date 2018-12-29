@@ -1,3 +1,19 @@
 .todos-component {
+  .todos-toolbar-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+    max-width: 100%;
 
+    .mat-tab-group {
+      overflow: hidden;
+    }
+
+    #new-todo-button {
+      margin-left: 16px; // Same as mat-toolbar padding
+    }
+  }
 }
