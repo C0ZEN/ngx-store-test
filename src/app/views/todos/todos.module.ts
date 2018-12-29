@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatIconModule,
+  MatTabsModule,
   MatTooltipModule
 } from '@angular/material';
 import { ToolbarModule } from '../../components/toolbar/toolbar.module';
@@ -24,6 +25,7 @@ import { TodosTodoModule } from './views/todo/todos-todo.module';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
+    MatTabsModule,
 
     // Internal
     TodosRoutingModule,

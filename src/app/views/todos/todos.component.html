@@ -3,6 +3,17 @@
   <!-- Toolbar -->
   <app-toolbar>
 
+    <!-- Todo tab list -->
+    <mat-tab-group *ngIf="todos.length > 0"
+                   class="tabs-fit-height"
+                   color="accent"
+                   [dynamicHeight]="true">
+      <mat-tab *ngFor="let todo of todos"
+               [id]="todo.id"
+               [label]="todo.name">
+      </mat-tab>
+    </mat-tab-group>
+
     <!-- New todo button -->
     <button (click)="newTodo()"
             color="accent"
@@ -14,5 +25,7 @@
   </app-toolbar>
 
   <!-- Content -->
-  <div class="content-container"></div>
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -1,12 +1,26 @@
-.navbar-tabs {
+.tabs-fit-height {
+  &.mat-tab-group {
+    height: 100%;
+  }
+
+  .mat-tab-header {
+    height: 100%;
+  }
+  
   .mat-tab-links {
     height: 100%;
   }
+
   .mat-tab-link {
     height: 100%;
   }
 
-  .mat-ink-bar {
-    height: 5px;
+  .mat-tab-labels {
+    align-items: center;
+    height: 100%;
   }
+}
+
+.ngx-store-test-app .mat-ink-bar {
+  height: 4px;
 }
