@@ -3,12 +3,12 @@ import {
   RouterModule,
   Routes
 } from '@angular/router';
-import { TodoComponent } from './todo.component';
+import { TodosComponent } from './todos.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TodoComponent
+    component: TodosComponent
   }
 ];
 
@@ -20,5 +20,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class TodoRoutingModule {
+export class TodosRoutingModule {
 }

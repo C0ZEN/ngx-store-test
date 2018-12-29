@@ -6,7 +6,7 @@ export const NavbarLinks: NavbarLinkInterface[] = [
     path: '/home'
   },
   {
-    label: 'Todo',
-    path: '/todo'
+    label: 'Todos',
+    path: '/todos'
   }
 ];

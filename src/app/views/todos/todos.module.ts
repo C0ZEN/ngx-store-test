@@ -6,13 +6,13 @@ import {
   MatTooltipModule
 } from '@angular/material';
 import { ToolbarModule } from '../../components/toolbar/toolbar.module';
-import { TodoRoutingModule } from './todo-routing.module';
+import { TodosRoutingModule } from './todos-routing.module';
 
-import { TodoComponent } from './todo.component';
+import { TodosComponent } from './todos.component';
 
 @NgModule({
   declarations: [
-    TodoComponent
+    TodosComponent
   ],
   imports: [
 
@@ -25,9 +25,9 @@ import { TodoComponent } from './todo.component';
     MatTooltipModule,
 
     // Internal
-    TodoRoutingModule,
+    TodosRoutingModule,
     ToolbarModule
   ]
 })
-export class TodoModule {
+export class TodosModule {
 }

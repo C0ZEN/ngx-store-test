@@ -5,11 +5,11 @@ import {
 import { TodosService } from '../../stores/todos/todos.service';
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: [ './todo.component.scss' ]
+  selector: 'app-todos',
+  templateUrl: './todos.component.html',
+  styleUrls: [ './todos.component.scss' ]
 })
-export class TodoComponent implements OnInit {
+export class TodosComponent implements OnInit {
   public constructor(
     private todosService: TodosService
   ) {
@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  public newTodoList(): void {
+  public newTodo(): void {
     this.todosService.add();
   }
 }
