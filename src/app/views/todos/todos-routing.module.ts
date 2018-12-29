@@ -4,6 +4,8 @@ import {
   Routes
 } from '@angular/router';
 import { TodosComponent } from './todos.component';
+import { TodosTodoExistGuard } from './views/todo/guards/todos-todo-exist.guard';
+import { TodosTodoActiveResolver } from './views/todo/resolvers/todos-todo-active.resolver';
 import { TodosTodoComponent } from './views/todo/todos-todo.component';
 
 const routes: Routes = [
@@ -13,7 +15,13 @@ const routes: Routes = [
     children: [
       {
         path: 'todo/:todoId',
-        component: TodosTodoComponent
+        component: TodosTodoComponent,
+        canActivate: [
+          TodosTodoExistGuard
+        ],
+        resolve: {
+          todo: TodosTodoActiveResolver
+        }
       }
     ]
   }

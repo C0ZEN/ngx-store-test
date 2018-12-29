@@ -15,7 +15,7 @@
         <a mat-tab-link
            *ngFor="let todo of todos"
            [id]="todo.id"
-           [routerLink]="'todo/' + todo.id"
+           [routerLink]="['todo', todo.id]"
            routerLinkActive
            #rla="routerLinkActive"
            [active]="rla.isActive">

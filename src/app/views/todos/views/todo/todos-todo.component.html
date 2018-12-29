@@ -1,3 +1,10 @@
-<div class="todos-todo-component">
+<div class="todos-todo-component"
+     *ngIf="todo">
 
+  <!-- Todo card -->
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ todo.name }}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
 </div>

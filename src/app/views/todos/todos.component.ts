@@ -3,6 +3,10 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
 import { TodoInterface } from '../../stores/todos/todo.interface';
@@ -22,7 +26,9 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   public constructor(
     private todosService: TodosService,
-    private todosQuery: TodosQuery
+    private todosQuery: TodosQuery,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
   }
 
@@ -36,6 +42,13 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   public newTodo(): void {
-    this.todosService.add();
+    const todo: TodoInterface = this.todosService.add();
+
+    this.router.navigate([
+      'todo',
+      todo.id
+    ], {
+      relativeTo: this.activatedRoute
+    });
   }
 }

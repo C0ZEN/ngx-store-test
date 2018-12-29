@@ -22,12 +22,34 @@ export class TodosService {
   // Create a new todo
   // Add it to the store
   // Log
-  public add(): void {
-    applyTransaction(() => {
-      const todo: TodoInterface = this.createTodo();
+  public add(): TodoInterface {
+    let todo: TodoInterface;
+
+    return applyTransaction(() => {
+      todo = this.create();
 
       this.todosStore.add(todo);
-      this.info(`todo ${todo.id} added`);
+      this.info(`todo "${todo.id}" added`);
+      return todo;
+    });
+  }
+
+  // Activate a todo by id
+  public activate(id: string): void {
+    this.todosStore.setActive(id);
+  }
+
+  // Create a new todo
+  // Add it to the store
+  // Activate it
+  // Log
+  public addAndActivate(): void {
+    applyTransaction(() => {
+      const todo: TodoInterface = this.create();
+
+      this.todosStore.add(todo);
+      this.todosStore.setActive(todo.id);
+      this.info(`todo "${todo.id}" added`);
     });
   }
 
@@ -38,7 +60,7 @@ export class TodosService {
 
   // Increment the tracker
   // Create a new todo item
-  private createTodo(): TodoInterface {
+  private create(): TodoInterface {
     this.incrementTracker();
     return {
       id: guid(),
@@ -58,6 +80,6 @@ export class TodosService {
         currentTracker: state.currentTracker + 1
       };
     });
-    this.info(`new tracker set to ${this.todosQuery.getSnapshot().currentTracker}`);
+    this.info(`new tracker set to "${this.todosQuery.getSnapshot().currentTracker}"`);
   }
 }
