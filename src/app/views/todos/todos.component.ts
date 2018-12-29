@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import {
   ActivatedRoute,
+  NavigationEnd,
   Router
 } from '@angular/router';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
@@ -21,8 +22,10 @@ import { TodosService } from '../../stores/todos/todos.service';
 })
 export class TodosComponent implements OnInit, OnDestroy {
   public todos: TodoInterface[] = [];
+  public currentUrl: string | undefined = undefined;
 
   private selectAllTodos: Subscription | undefined = undefined;
+  private routerEvents: Subscription | undefined = undefined;
 
   public constructor(
     private todosService: TodosService,
@@ -33,9 +36,21 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+
+    // Always sync with the complete list of todos
     this.selectAllTodos = this.todosQuery.selectAll().subscribe((allTodos: TodoInterface[]) => {
       this.todos = allTodos;
     });
+
+    // Update the current url when the navigation occur in the todos views
+    this.routerEvents = this.router.events.subscribe(routerEvent => {
+      if (routerEvent instanceof NavigationEnd) {
+        this.currentUrl = routerEvent.url;
+      }
+    });
+
+    // Get the current router url the first time this component is created
+    this.currentUrl = this.router.url;
   }
 
   public ngOnDestroy(): void {

@@ -14,7 +14,4 @@ export interface TodoInterface {
 
   // Update date
   updateDate: string | undefined;
-
-  // Tasks list
-  tasks: any[];
 }

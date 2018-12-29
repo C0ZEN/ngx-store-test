@@ -67,8 +67,7 @@ export class TodosService {
       name: `Todo list ${this.todosQuery.getSnapshot().currentTracker}`,
       description: undefined,
       creationDate: new Date().toISOString(),
-      updateDate: undefined,
-      tasks: []
+      updateDate: undefined
     };
   }
 

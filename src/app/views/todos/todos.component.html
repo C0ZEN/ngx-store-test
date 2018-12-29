@@ -35,9 +35,41 @@
       </button>
     </div>
   </app-toolbar>
-
-  <!-- Content -->
   <div class="content-container">
+
+    <!-- Todos description -->
+    <div *ngIf="currentUrl === '/todos'"
+         class="todos-description-container">
+      <h1 class="mat-h1">Todos views</h1>
+
+      <!-- TD;DR -->
+      <h3 class="mat-h3">TL;DR</h3>
+      <p class="mat-body">
+        These views allows you to create some todos list with tasks.
+        <br>
+        This is a good example on how to use Akita's store to help data management.
+      </p>
+
+      <!-- Stores -->
+      <h3 class="mat-h3">Stores</h3>
+      <p class="mat-body">
+        All these stores use the Akita's local storage feature to keep your data persistent and it is better than just mocking the data.
+        <br>
+        There is no such thing as a real database behind it, this is a 100% Front-End project.
+      </p>
+      <h4 class="mat-h4">Todos</h4>
+      <p class="mat-body">
+        The main store is called "todos" and contains only a list of todos.
+        <br>
+        These todos are very simple and the full list is always display inside the tabs so the store works alone without an additional UI store.
+        <br>
+        We could consider it as a flat store since there is no deep level of data like object or array inside it.
+        <br>
+        All the data which is linked to a specific todos like the tasks are store inside others stores and use the id to create a permanent link between the data.
+      </p>
+    </div>
+
+    <!-- Children content -->
     <router-outlet></router-outlet>
   </div>
 </div>
