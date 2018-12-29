@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { TodosService } from '../../stores/todos/todos.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,9 +10,15 @@ import {
   styleUrls: [ './todo.component.scss' ]
 })
 export class TodoComponent implements OnInit {
-  public constructor() {
+  public constructor(
+    private todosService: TodosService
+  ) {
   }
 
   public ngOnInit(): void {
+  }
+
+  public newTodoList(): void {
+    this.todosService.add();
   }
 }

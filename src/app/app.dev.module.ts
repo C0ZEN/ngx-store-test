@@ -5,7 +5,7 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 @NgModule({
   imports: [
     AkitaNgDevtools.forRoot({
-      logTrace: true
+      logTrace: false
     }),
     AkitaNgRouterStoreModule.forRoot()
   ]

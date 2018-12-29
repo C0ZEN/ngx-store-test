@@ -6,13 +6,15 @@ import {
   getInitialActiveState,
   StoreConfig
 } from '@datorama/akita';
+import { TrackerInterface } from '../../interfaces/tracker.interface';
 import { TodoInterface } from './todo.interface';
 
-export interface TodosState extends EntityState<TodoInterface>, ActiveState {
+export interface TodosState extends EntityState<TodoInterface>, ActiveState, TrackerInterface {
 }
 
-const initialState = {
-  ...getInitialActiveState()
+const initialState: TodosState = {
+  ...getInitialActiveState(),
+  currentTracker: 0
 };
 
 @StoreConfig({ name: 'todos' })
