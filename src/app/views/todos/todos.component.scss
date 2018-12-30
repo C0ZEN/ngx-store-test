@@ -21,4 +21,18 @@
       margin-left: 16px; // Same as mat-toolbar padding
     }
   }
+
+  .todos-description-container {
+    .actions-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 16px;
+
+      button + button {
+        margin-left: 12px;
+      }
+    }
+  }
 }

@@ -19,9 +19,11 @@ export class TodosService {
   ) {
   }
 
-  // Create a new todo
-  // Add it to the store
-  // Log
+  /**
+   * Create a new todo
+   * Add it to the store
+   * Log
+   */
   public add(): TodoInterface {
     let todo: TodoInterface;
 
@@ -34,15 +36,19 @@ export class TodosService {
     });
   }
 
-  // Activate a todo by id
+  /**
+   * Activate a todo by id
+   */
   public activate(id: string): void {
     this.todosStore.setActive(id);
   }
 
-  // Create a new todo
-  // Add it to the store
-  // Activate it
-  // Log
+  /**
+   * Create a new todo
+   * Add it to the store
+   * Activate it
+   * Log
+   */
   public addAndActivate(): void {
     applyTransaction(() => {
       const todo: TodoInterface = this.create();
@@ -53,13 +59,26 @@ export class TodosService {
     });
   }
 
-  // Print info log
+  /**
+   * Reset all the data
+   * Log
+   */
+  public reset(): void {
+    this.todosStore.reset();
+    this.info(`todos store reset`);
+  }
+
+  /**
+   * Print info log
+   */
   private info(message: string): void {
     this.logger.info(`TodosService: ${message}`);
   }
 
-  // Increment the tracker
-  // Create a new todo item
+  /**
+   * Increment the tracker
+   * Create a new todo item
+   */
   private create(): TodoInterface {
     this.incrementTracker();
     const id: string = guid();
@@ -73,8 +92,10 @@ export class TodosService {
     };
   }
 
-  // Increment the current state tracker
-  // Log
+  /**
+   * Increment the current state tracker
+   * Log
+   */
   private incrementTracker(): void {
     this.todosStore.updateRoot(state => {
       return {

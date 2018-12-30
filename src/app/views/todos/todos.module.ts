@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
+  MatDialogModule,
   MatIconModule,
   MatTabsModule,
   MatTooltipModule
@@ -26,6 +27,7 @@ import { TodosTodoModule } from './views/todo/todos-todo.module';
     MatIconModule,
     MatTooltipModule,
     MatTabsModule,
+    MatDialogModule,
 
     // Internal
     TodosRoutingModule,

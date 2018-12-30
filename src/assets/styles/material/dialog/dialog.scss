@@ -1,0 +1,7 @@
+.dialog {
+  [mat-dialog-actions] {
+    button + button {
+      margin-left: 12px;
+    }
+  }
+}

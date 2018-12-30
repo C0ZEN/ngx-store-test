@@ -13,8 +13,12 @@ import { ToolbarComponent } from './toolbar.component';
     ToolbarComponent
   ],
   imports: [
+
+    // Angular
     CommonModule,
     RouterModule,
+
+    // Third parties
     MatToolbarModule
   ]
 })

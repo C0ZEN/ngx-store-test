@@ -1,0 +1,28 @@
+<div class="remove-all-todos-dialog-component dialog">
+
+  <!-- Title -->
+  <h1 mat-dialog-title>Remove all todos</h1>
+
+  <!-- Content -->
+  <div mat-dialog-content>
+    <p class="mat-body">
+      Remove all existing todos from this application ?
+      <br>
+      Undo this action is not possible. All the data will be lost.
+    </p>
+  </div>
+
+  <!-- Actions -->
+  <div mat-dialog-actions>
+    <button mat-raised-button
+            (click)="close()">
+      Close
+    </button>
+    <button mat-raised-button
+            color="warn"
+            (click)="removeAllTodos()"
+            cdkFocusInitial>
+      Remove
+    </button>
+  </div>
+</div>

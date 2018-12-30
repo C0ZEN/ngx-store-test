@@ -15,9 +15,9 @@ import { TodosQuery } from '../../../../stores/todos/todos.query';
   styleUrls: [ './todos-todo.component.scss' ]
 })
 export class TodosTodoComponent implements OnInit, OnDestroy {
-  public todo: TodoInterface | undefined = undefined;
+  public todo: TodoInterface | undefined;
 
-  private selectActiveTodo: Subscription | undefined = undefined;
+  private selectActiveTodo: Subscription | undefined;
 
   public constructor(
     private todosQuery: TodosQuery

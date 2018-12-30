@@ -16,8 +16,12 @@ import { NavbarComponent } from './navbar.component';
     NavbarComponent
   ],
   imports: [
+
+    // Angular
     CommonModule,
     RouterModule,
+
+    // Third parties
     MatToolbarModule,
     MatTabsModule
   ]

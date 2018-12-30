@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AppDevModule } from './app.dev.module';
 import { AppProdModule } from './app.prod.module';
 import { NavbarModule } from './components/navbar/navbar.module';
+import { DialogsModule } from './dialogs/dialogs.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NavbarModule } from './components/navbar/navbar.module';
     }),
 
     // Internal
-    NavbarModule
+    NavbarModule,
+    DialogsModule
   ],
   bootstrap: [
     AppComponent
