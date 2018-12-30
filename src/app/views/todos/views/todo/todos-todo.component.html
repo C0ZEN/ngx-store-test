@@ -4,8 +4,21 @@
   <!-- Todo card -->
   <mat-card>
     <mat-card-header>
+
+      <!-- Todo avatar -->
+      <div mat-card-avatar
+           class="todo-avatar">
+        <img [src]="todo.avatarUrl"
+             alt="avatar">
+      </div>
+
+      <!-- Todo name -->
       <mat-card-title>{{ todo.name }}</mat-card-title>
+
+      <!-- Todo description -->
       <mat-card-subtitle>{{ todo.description }}</mat-card-subtitle>
     </mat-card-header>
+    <mat-card-content>
+    </mat-card-content>
   </mat-card>
 </div>

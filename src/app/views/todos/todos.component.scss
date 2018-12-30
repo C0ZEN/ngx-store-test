@@ -8,11 +8,16 @@
     height: 100%;
     max-width: 100%;
 
-    .mat-tab-group {
-      overflow: hidden;
+    #todo-tab-list {
+      flex-shrink: 1;
+
+      .mat-tab-group {
+        overflow: hidden;
+      }
     }
 
     #new-todo-button {
+      flex-shrink: 0;
       margin-left: 16px; // Same as mat-toolbar padding
     }
   }

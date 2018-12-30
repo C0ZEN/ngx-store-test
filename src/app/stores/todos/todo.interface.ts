@@ -14,4 +14,7 @@ export interface TodoInterface {
 
   // Update date
   updateDate: string | undefined;
+
+  // Image
+  avatarUrl: string;
 }

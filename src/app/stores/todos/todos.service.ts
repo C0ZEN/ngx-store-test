@@ -62,12 +62,14 @@ export class TodosService {
   // Create a new todo item
   private create(): TodoInterface {
     this.incrementTracker();
+    const id: string = guid();
     return {
-      id: guid(),
+      id: id,
       name: `Todo list ${this.todosQuery.getSnapshot().currentTracker}`,
       description: undefined,
       creationDate: new Date().toISOString(),
-      updateDate: undefined
+      updateDate: undefined,
+      avatarUrl: `https://api.adorable.io/avatars/40/${id}.png`
     };
   }
 

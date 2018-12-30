@@ -5,7 +5,8 @@
     <div class="todos-toolbar-content">
 
       <!-- Todo tab list -->
-      <nav *ngIf="todos.length > 0"
+      <nav id="todo-tab-list"
+           *ngIf="todos.length > 0"
            mat-tab-nav-bar
            class="tabs-fit-height"
            backgroundColor="primary"
