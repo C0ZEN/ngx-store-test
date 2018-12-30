@@ -11,6 +11,9 @@
 
   <!-- Configuration -->
   <h3 class="mat-h3 no-margin">Configuration</h3>
+  <p class="mat-body">
+    This section is all about how the project is configured and what kind of library it uses.
+  </p>
   <mat-list>
     <ng-template ngFor
                  let-category
@@ -33,5 +36,27 @@
       </mat-list-item>
       <mat-divider *ngIf="!isLastCategory"></mat-divider>
     </ng-template>
+  </mat-list>
+
+  <!-- Features -->
+  <h3 class="mat-h3 no-margin">Features</h3>
+  <p class="mat-body">
+    This section is all about the playground features which are available as an example on the third parties libraries or other stuff.
+  </p>
+  <mat-list>
+    <mat-list-item *ngFor="let feature of featuresCategories">
+      <mat-icon matListIcon
+                [svgIcon]="feature.icon">
+      </mat-icon>
+      <p matLine
+         class="mat-body">
+        {{ feature.label }}
+      </p>
+      <p *ngIf="feature.description"
+         matLine
+         class="mat-small color-grey white-space-normal">
+        {{ feature.description }}
+      </p>
+    </mat-list-item>
   </mat-list>
 </div>

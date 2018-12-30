@@ -8,6 +8,7 @@ export enum MaterialIconsEnum {
   CUBE = 'cube',
   ADD_CIRCLE = 'add-circle',
   INDEX = 'index',
+  CHECKLIST = 'checklist',
   // WHITE
   WHITE_ADD = 'white-add',
   WHITE_ADD_CIRCLE = 'white-add-circle'
