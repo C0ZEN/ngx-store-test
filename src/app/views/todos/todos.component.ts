@@ -6,6 +6,7 @@ import {
 import {
   MatDialog,
   MatDialogRef,
+  MatSnackBar,
 } from '@angular/material';
 import {
   ActivatedRoute,
@@ -41,7 +42,8 @@ export class TodosComponent implements OnInit, OnDestroy {
     private todosQuery: TodosQuery,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private matSnackBar: MatSnackBar
   ) {
   }
 
@@ -82,6 +84,7 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.removeAllTodosDialog.afterClosed().subscribe((value: RemoveAllTodosDialogCloseDataInterface | undefined) => {
       if (!isNil(value) && value.confirmRemove) {
         this.todosService.reset();
+        this.matSnackBar.open('All todos removed');
       }
     });
   }

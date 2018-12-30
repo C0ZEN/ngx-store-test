@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import {
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSnackBarConfig
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   LoggerModule,
@@ -40,6 +44,14 @@ import { DialogsModule } from './dialogs/dialogs.module';
     // Internal
     NavbarModule,
     DialogsModule
+  ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: <MatSnackBarConfig>{
+        duration: 4000
+      }
+    }
   ],
   bootstrap: [
     AppComponent
