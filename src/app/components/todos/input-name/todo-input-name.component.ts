@@ -9,6 +9,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
+import { isNil } from 'lodash';
 
 @Component({
   selector: 'app-todo-input-name',
@@ -27,6 +28,13 @@ export class TodoInputNameComponent implements OnInit {
   @Output('todoInputNameFormControl')
   private formControl: EventEmitter<FormControl> = new EventEmitter();
 
+  public get value(): string {
+    if (!isNil(this.name) && !isNil(this.name.value)) {
+      return this.name.value;
+    }
+    return '';
+  }
+
   public constructor() {
   }
 
@@ -37,5 +45,11 @@ export class TodoInputNameComponent implements OnInit {
       Validators.maxLength(this.maxLength)
     ]);
     this.formControl.emit(this.name);
+  }
+
+  public clear(): void {
+    if (!isNil(this.name)) {
+      this.name.setValue(null);
+    }
   }
 }

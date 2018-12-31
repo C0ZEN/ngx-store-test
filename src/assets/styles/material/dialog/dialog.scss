@@ -5,3 +5,11 @@
     }
   }
 }
+
+.mat-dialog-container {
+  min-width: 300px;
+
+  .mat-form-field {
+    width: 100%;
+  }
+}

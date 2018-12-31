@@ -7,7 +7,10 @@ import {
   FormGroup
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import { isNil } from 'lodash';
+import {
+  isNil,
+  merge
+} from 'lodash';
 import { TodoInterface } from '../../stores/todos/todo.interface';
 import { TodosService } from '../../stores/todos/todos.service';
 import { AddTodoDialogCloseDataInterface } from './interfaces/add-todo-dialog-close-data.interface';
@@ -42,9 +45,11 @@ export class AddTodoDialogComponent implements OnInit {
   }
 
   public addTodo(): void {
-    this.matDialogRef.close({
-      todo: this.todo
-    });
+    if (!isNil(this.todoForm)) {
+      this.matDialogRef.close({
+        todo: merge({}, this.todo, this.todoForm.getRawValue())
+      });
+    }
   }
 
   public close(): void {

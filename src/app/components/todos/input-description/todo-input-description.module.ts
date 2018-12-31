@@ -11,14 +11,14 @@ import {
   MatInputModule
 } from '@angular/material';
 
-import { TodoInputNameComponent } from './todo-input-name.component';
+import { TodoInputDescriptionComponent } from './todo-input-description.component';
 
 @NgModule({
   declarations: [
-    TodoInputNameComponent
+    TodoInputDescriptionComponent
   ],
   exports: [
-    TodoInputNameComponent
+    TodoInputDescriptionComponent
   ],
   imports: [
 
@@ -34,5 +34,5 @@ import { TodoInputNameComponent } from './todo-input-name.component';
     MatButtonModule
   ]
 })
-export class TodoInputNameModule {
+export class TodoInputDescriptionModule {
 }

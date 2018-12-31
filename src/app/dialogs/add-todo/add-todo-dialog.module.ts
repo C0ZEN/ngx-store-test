@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material';
+import { TodoInputDescriptionModule } from '../../components/todos/input-description/todo-input-description.module';
 import { TodoInputNameModule } from '../../components/todos/input-name/todo-input-name.module';
 
 import { AddTodoDialogComponent } from './add-todo-dialog.component';
@@ -30,7 +31,8 @@ import { AddTodoDialogComponent } from './add-todo-dialog.component';
     MatButtonModule,
 
     // Internal
-    TodoInputNameModule
+    TodoInputNameModule,
+    TodoInputDescriptionModule
   ]
 })
 export class AddTodoDialogModule {

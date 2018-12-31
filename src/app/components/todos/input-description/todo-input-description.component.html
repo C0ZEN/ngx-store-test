@@ -1,15 +1,17 @@
-<div class="todo-input-name-component">
+<div class="todo-input-description-component">
   <mat-form-field>
 
     <!-- Label -->
-    <mat-label>Name</mat-label>
+    <mat-label>Description</mat-label>
 
-    <!-- Input -->
-    <input placeholder="My shopping list"
-           type="text"
-           matInput
-           required
-           [formControl]="name">
+    <!-- Textarea -->
+    <textarea placeholder="A list of stuff I must buy the next time I go shopping !"
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="2"
+              cdkAutosizeMaxRows="5"
+              [formControl]="description">
+    </textarea>
 
     <!-- Clear button -->
     <button mat-button
@@ -25,19 +27,15 @@
     <mat-hint align="end">{{ value.length }} / {{ maxLength }}</mat-hint>
 
     <!-- Errors -->
-    <mat-error *ngIf="name.errors?.minlength">
-      Name must be at least
+    <mat-error *ngIf="description.errors?.minlength">
+      Description must be at least
       <strong>{{ minLength }}</strong>
       characters long
     </mat-error>
-    <mat-error *ngIf="name.errors?.maxlength">
-      Name must be at most
+    <mat-error *ngIf="description.errors?.maxlength">
+      Description must be at most
       <strong>{{ maxLength }}</strong>
       characters long
-    </mat-error>
-    <mat-error *ngIf="name.errors?.required">
-      Name is
-      <strong>required</strong>
     </mat-error>
   </mat-form-field>
 </div>

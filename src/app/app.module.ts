@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import {
   ErrorStateMatcher,
+  MAT_DIALOG_DEFAULT_OPTIONS,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
   MatSnackBarConfig,
   ShowOnDirtyErrorStateMatcher
@@ -57,6 +58,14 @@ import { DialogsModule } from './dialogs/dialogs.module';
     {
       provide: ErrorStateMatcher,
       useClass: ShowOnDirtyErrorStateMatcher
+    },
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: {
+        hasBackdrop: true,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      }
     }
   ],
   bootstrap: [
