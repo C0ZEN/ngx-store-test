@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import {
+  ErrorStateMatcher,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatSnackBarConfig
+  MatSnackBarConfig,
+  ShowOnDirtyErrorStateMatcher
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -51,6 +53,10 @@ import { DialogsModule } from './dialogs/dialogs.module';
       useValue: <MatSnackBarConfig>{
         duration: 4000
       }
+    },
+    {
+      provide: ErrorStateMatcher,
+      useClass: ShowOnDirtyErrorStateMatcher
     }
   ],
   bootstrap: [

@@ -16,6 +16,8 @@ import {
 import { isNil } from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
+import { AddTodoDialogComponent } from '../../dialogs/add-todo/add-todo-dialog.component';
+import { AddTodoDialogCloseDataInterface } from '../../dialogs/add-todo/interfaces/add-todo-dialog-close-data.interface';
 import { RemoveAllTodosDialogCloseDataInterface } from '../../dialogs/remove-all-todos/interfaces/remove-all-todos-dialog-close-data.interface';
 import { RemoveAllTodosDialogComponent } from '../../dialogs/remove-all-todos/remove-all-todos-dialog.component';
 import { TodoInterface } from '../../stores/todos/todo.interface';
@@ -36,6 +38,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   private routerEvents: Subscription | undefined;
 
   private removeAllTodosDialog: MatDialogRef<RemoveAllTodosDialogComponent, RemoveAllTodosDialogCloseDataInterface> | undefined;
+  private addTodoDialog: MatDialogRef<AddTodoDialogComponent, AddTodoDialogCloseDataInterface> | undefined;
 
   public constructor(
     private todosService: TodosService,
@@ -68,14 +71,21 @@ export class TodosComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
   }
 
-  public newTodo(): void {
-    const todo: TodoInterface = this.todosService.add();
-
-    this.router.navigate([
-      'todo',
-      todo.id
-    ], {
-      relativeTo: this.activatedRoute
+  public addTodo(): void {
+    this.addTodoDialog = this.matDialog.open(AddTodoDialogComponent);
+    this.addTodoDialog.afterClosed().subscribe((value: AddTodoDialogCloseDataInterface | undefined) => {
+      if (!isNil(value) && !isNil(value.todo)) {
+        this.todosService.add(value.todo);
+        this.router.navigate([
+          'todo',
+          value.todo.id
+        ], {
+          relativeTo: this.activatedRoute
+        });
+        this.matSnackBar.open('New todo added');
+      } else {
+        this.todosService.cancelCreate();
+      }
     });
   }
 

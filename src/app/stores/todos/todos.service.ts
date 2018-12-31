@@ -22,18 +22,10 @@ export class TodosService {
   /**
    * Create a new todo
    * Add it to the store
-   * Log
    */
-  public add(): TodoInterface {
-    let todo: TodoInterface;
-
-    return applyTransaction(() => {
-      todo = this.create();
-
-      this.todosStore.add(todo);
-      this.info(`todo "${todo.id}" added`);
-      return todo;
-    });
+  public add(todo: TodoInterface): void {
+    this.todosStore.add(todo);
+    this.info(`todo "${todo.id}" added`);
   }
 
   /**
@@ -41,18 +33,16 @@ export class TodosService {
    */
   public activate(id: string): void {
     this.todosStore.setActive(id);
+    this.info(`todo "${id}" activated`);
   }
 
   /**
    * Create a new todo
    * Add it to the store
    * Activate it
-   * Log
    */
-  public addAndActivate(): void {
+  public addAndActivate(todo: TodoInterface): void {
     applyTransaction(() => {
-      const todo: TodoInterface = this.create();
-
       this.todosStore.add(todo);
       this.todosStore.setActive(todo.id);
       this.info(`todo "${todo.id}" added`);
@@ -61,7 +51,6 @@ export class TodosService {
 
   /**
    * Reset all the data
-   * Log
    */
   public reset(): void {
     this.todosStore.reset();
@@ -69,17 +58,10 @@ export class TodosService {
   }
 
   /**
-   * Print info log
-   */
-  private info(message: string): void {
-    this.logger.info(`TodosService: ${message}`);
-  }
-
-  /**
    * Increment the tracker
    * Create a new todo item
    */
-  private create(): TodoInterface {
+  public create(): TodoInterface {
     this.incrementTracker();
     const id: string = guid();
     return {
@@ -93,8 +75,22 @@ export class TodosService {
   }
 
   /**
+   * Undo a creation of todo
+   * Decrement the current tracker
+   */
+  public cancelCreate(): void {
+    this.decrementTracker();
+  }
+
+  /**
+   * Print info log
+   */
+  private info(message: string): void {
+    this.logger.info(`TodosService: ${message}`);
+  }
+
+  /**
    * Increment the current state tracker
-   * Log
    */
   private incrementTracker(): void {
     this.todosStore.updateRoot(state => {
@@ -102,6 +98,18 @@ export class TodosService {
         currentTracker: state.currentTracker + 1
       };
     });
-    this.info(`new tracker set to "${this.todosQuery.getSnapshot().currentTracker}"`);
+    this.info(`new tracker increase to "${this.todosQuery.getSnapshot().currentTracker}"`);
+  }
+
+  /**
+   * Decrement the current state tracker
+   */
+  private decrementTracker(): void {
+    this.todosStore.updateRoot(state => {
+      return {
+        currentTracker: state.currentTracker - 1
+      };
+    });
+    this.info(`new tracker decrease to "${this.todosQuery.getSnapshot().currentTracker}"`);
   }
 }

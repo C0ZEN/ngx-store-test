@@ -1,0 +1,24 @@
+<div class="todo-input-name-component">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input placeholder="My shopping list"
+           type="text"
+           matInput
+           required
+           [formControl]="name">
+    <mat-error *ngIf="name.errors?.minlength">
+      Name must be at least
+      <strong>{{ minLength }}</strong>
+      characters long
+    </mat-error>
+    <mat-error *ngIf="name.errors?.maxlength">
+      Name must be at most
+      <strong>{{ maxLength }}</strong>
+      characters long
+    </mat-error>
+    <mat-error *ngIf="name.errors?.required">
+      Name is
+      <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</div>
