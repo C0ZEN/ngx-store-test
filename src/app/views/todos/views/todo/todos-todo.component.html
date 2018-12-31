@@ -8,7 +8,15 @@
       <!-- Todo avatar -->
       <div mat-card-avatar
            class="todo-avatar">
+
+        <!-- Loader -->
+        <div *ngIf="!isAvatarLoaded"
+             class="loader lds-dual-ring avatar">
+        </div>
+
+        <!-- Image -->
         <img [src]="todo.avatarUrl"
+             (load)="onAvatarLoad()"
              alt="avatar">
       </div>
 
