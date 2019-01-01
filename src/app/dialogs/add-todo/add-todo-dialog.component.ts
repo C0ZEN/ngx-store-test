@@ -1,6 +1,8 @@
 import {
+  AfterViewInit,
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {
   AbstractControl,
@@ -11,6 +13,7 @@ import {
   isNil,
   merge
 } from 'lodash';
+import { TodoInputNameComponent } from '../../components/todos/input-name/todo-input-name.component';
 import { TodoInterface } from '../../stores/todos/todo.interface';
 import { TodosService } from '../../stores/todos/todos.service';
 import { AddTodoDialogCloseDataInterface } from './interfaces/add-todo-dialog-close-data.interface';
@@ -20,10 +23,13 @@ import { AddTodoDialogCloseDataInterface } from './interfaces/add-todo-dialog-cl
   templateUrl: './add-todo-dialog.component.html',
   styleUrls: [ './add-todo-dialog.component.scss' ]
 })
-export class AddTodoDialogComponent implements OnInit {
+export class AddTodoDialogComponent implements OnInit, AfterViewInit {
   public todo: TodoInterface | undefined;
 
   public todoForm: FormGroup | undefined;
+
+  @ViewChild('todoInputName')
+  public todoInputName: TodoInputNameComponent | undefined;
 
   public get name(): AbstractControl | null {
     if (!isNil(this.todoForm)) {
@@ -42,6 +48,14 @@ export class AddTodoDialogComponent implements OnInit {
     this.todo = this.todosService.create();
 
     this.todoForm = new FormGroup({});
+  }
+
+  public ngAfterViewInit(): void {
+    setTimeout(() => {
+      if (!isNil(this.todoInputName)) {
+        this.todoInputName.focus();
+      }
+    });
   }
 
   public addTodo(): void {

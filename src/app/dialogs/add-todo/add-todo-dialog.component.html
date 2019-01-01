@@ -9,7 +9,8 @@
     <form [formGroup]="todoForm">
 
       <!-- Todo input name -->
-      <app-todo-input-name [todoInputNameDefault]="todo.name"
+      <app-todo-input-name #todoInputName
+                           [todoInputNameDefault]="todo.name"
                            (todoInputNameFormControl)="todoForm.addControl('name', $event)">
       </app-todo-input-name>
 

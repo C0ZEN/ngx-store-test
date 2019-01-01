@@ -1,9 +1,11 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  ViewChild
 } from '@angular/core';
 import {
   FormControl,
@@ -21,6 +23,11 @@ export class TodoInputNameComponent implements OnInit {
 
   public minLength: number = 2;
   public maxLength: number = 60;
+
+  @ViewChild('input', {
+    read: ElementRef
+  })
+  public input: ElementRef | undefined;
 
   @Input('todoInputNameDefault')
   private defaultName: string | undefined;
@@ -50,6 +57,12 @@ export class TodoInputNameComponent implements OnInit {
   public clear(): void {
     if (!isNil(this.name)) {
       this.name.setValue(null);
+    }
+  }
+
+  public focus(): void {
+    if (!isNil(this.input)) {
+      this.input.nativeElement.focus();
     }
   }
 }
