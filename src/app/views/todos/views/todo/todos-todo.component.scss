@@ -14,16 +14,17 @@
         border-radius: 50%;
       }
     }
+  }
 
-    .mat-card-actions {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+  .action-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 16px;
 
-      .right-content {
-        margin-left: auto;
-      }
+    button + button {
+      margin-left: 8px;
     }
   }
 }

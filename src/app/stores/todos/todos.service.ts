@@ -86,7 +86,8 @@ export class TodosService {
    * Edit a todo
    */
   public edit(todo: TodoInterface): void {
-    this.todosStore.updateActive(todo);
+    todo.updateDate = new Date().toISOString();
+    this.todosStore.update(todo.id, todo);
     this.info(`todo "${todo.id}" edited`);
   }
 
