@@ -1,0 +1,42 @@
+<div *ngIf="todo"
+     class="edit-todo-dialog-component dialog">
+
+  <!-- Title -->
+  <h1 mat-dialog-title>Edit todo</h1>
+
+  <!-- Content -->
+  <div mat-dialog-content>
+    <form [formGroup]="todoForm">
+
+      <!-- Todo input name -->
+      <app-todo-input-name #todoInputName
+                           [todoInputNameDefault]="todo.name"
+                           (todoInputNameFormControl)="todoForm.addControl('name', $event)">
+      </app-todo-input-name>
+
+      <!-- Todo input description -->
+      <app-todo-input-description [todoInputDescriptionDefault]="todo.description"
+                                  (todoInputDescriptionFormControl)="todoForm.addControl('description', $event)">
+      </app-todo-input-description>
+    </form>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions-container"
+       mat-dialog-actions>
+
+    <!-- Close button -->
+    <button mat-raised-button
+            (click)="close()">
+      Close
+    </button>
+
+    <!-- Edit todo button -->
+    <button mat-raised-button
+            color="primary"
+            [disabled]="todoForm.invalid"
+            (click)="editTodo()">
+      Edit
+    </button>
+  </div>
+</div>

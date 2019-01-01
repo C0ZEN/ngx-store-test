@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatTooltipModule
+} from '@angular/material';
 import { TodosTodoComponent } from './todos-todo.component';
 
 @NgModule({
@@ -13,7 +17,9 @@ import { TodosTodoComponent } from './todos-todo.component';
     CommonModule,
 
     // Third parties
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class TodosTodoModule {

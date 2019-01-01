@@ -1,16 +1,29 @@
 @import '../../../../../assets/styles/imports';
 
 .todos-todo-component {
-  .todo-avatar {
-    position: relative;
+  .mat-card {
+    .todo-avatar {
+      position: relative;
 
-    .loader {
-      position: absolute;
-      background-color: $color-white;
+      .loader {
+        position: absolute;
+        background-color: $color-white;
+      }
+
+      img {
+        border-radius: 50%;
+      }
     }
 
-    img {
-      border-radius: 50%;
+    .mat-card-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .right-content {
+        margin-left: auto;
+      }
     }
   }
 }

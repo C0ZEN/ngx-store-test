@@ -28,5 +28,31 @@
     </mat-card-header>
     <mat-card-content>
     </mat-card-content>
+
+    <!-- Action bar -->
+    <mat-card-actions>
+      <div class="left-content">
+
+        <!-- Add task button -->
+        <button mat-raised-button
+                color="accent"
+                matTooltip="Add task"
+                matTooltipPosition="before"
+                (click)="addTask()">
+          Add
+        </button>
+      </div>
+      <div class="right-content">
+
+        <!-- Edit todo button -->
+        <button mat-raised-button
+                color="accent"
+                matTooltip="Edit todo"
+                matTooltipPosition="after"
+                (click)="editTodo()">
+          Edit
+        </button>
+      </div>
+    </mat-card-actions>
   </mat-card>
 </div>

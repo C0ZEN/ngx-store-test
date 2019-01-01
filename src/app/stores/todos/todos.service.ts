@@ -83,6 +83,14 @@ export class TodosService {
   }
 
   /**
+   * Edit a todo
+   */
+  public edit(todo: TodoInterface): void {
+    this.todosStore.updateActive(todo);
+    this.info(`todo "${todo.id}" edited`);
+  }
+
+  /**
    * Print info log
    */
   private info(message: string): void {
