@@ -20,8 +20,7 @@ export class TodosService {
   }
 
   /**
-   * Create a new todo
-   * Add it to the store
+   * Add todo
    */
   public add(todo: TodoInterface): void {
     this.todosStore.add(todo);

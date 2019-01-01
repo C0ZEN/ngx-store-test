@@ -1,0 +1,42 @@
+<div *ngIf="task"
+     class="add-task-dialog-component dialog">
+
+  <!-- Title -->
+  <h1 mat-dialog-title>Add task</h1>
+
+  <!-- Content -->
+  <div mat-dialog-content>
+    <form [formGroup]="taskForm">
+
+      <!-- Task input name -->
+      <app-task-input-name #taskInputName
+                           [taskInputNameDefault]="task.name"
+                           (taskInputNameFormControl)="taskForm.addControl('name', $event)">
+      </app-task-input-name>
+
+      <!-- Task input description -->
+      <app-task-input-description [taskInputDescriptionDefault]="task.description"
+                                  (taskInputDescriptionFormControl)="taskForm.addControl('description', $event)">
+      </app-task-input-description>
+    </form>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions-container"
+       mat-dialog-actions>
+
+    <!-- Close button -->
+    <button mat-raised-button
+            (click)="close()">
+      Close
+    </button>
+
+    <!-- Add task button -->
+    <button mat-raised-button
+            color="primary"
+            [disabled]="taskForm.invalid"
+            (click)="addTask()">
+      Add
+    </button>
+  </div>
+</div>

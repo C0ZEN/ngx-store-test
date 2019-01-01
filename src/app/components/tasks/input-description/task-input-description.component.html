@@ -1,0 +1,41 @@
+<div class="task-input-description-component">
+  <mat-form-field>
+
+    <!-- Label -->
+    <mat-label>Description</mat-label>
+
+    <!-- Textarea -->
+    <textarea placeholder="Only one, heinz please !"
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="2"
+              cdkAutosizeMaxRows="5"
+              [formControl]="description">
+    </textarea>
+
+    <!-- Clear button -->
+    <button mat-button
+            *ngIf="value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="clear()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- Current characters -->
+    <mat-hint align="end">{{ value.length }} / {{ maxLength }}</mat-hint>
+
+    <!-- Errors -->
+    <mat-error *ngIf="description.errors?.minlength">
+      Description must be at least
+      <strong>{{ minLength }}</strong>
+      characters long
+    </mat-error>
+    <mat-error *ngIf="description.errors?.maxlength">
+      Description must be at most
+      <strong>{{ maxLength }}</strong>
+      characters long
+    </mat-error>
+  </mat-form-field>
+</div>

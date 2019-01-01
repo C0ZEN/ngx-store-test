@@ -15,8 +15,11 @@ import {
 import { isNil } from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
+import { AddTaskDialogComponent } from '../../../../dialogs/add-task/add-task-dialog.component';
+import { AddTaskDialogCloseDataInterface } from '../../../../dialogs/add-task/interfaces/add-task-dialog-close-data.interface';
 import { EditTodoDialogComponent } from '../../../../dialogs/edit-todo/edit-todo-dialog.component';
 import { EditTodoDialogCloseDataInterface } from '../../../../dialogs/edit-todo/interfaces/edit-todo-dialog-close-data.interface';
+import { TasksService } from '../../../../stores/tasks/tasks.service';
 import { TodoInterface } from '../../../../stores/todos/todo.interface';
 import { TodosQuery } from '../../../../stores/todos/todos.query';
 import { TodosService } from '../../../../stores/todos/todos.service';
@@ -34,6 +37,7 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
   private selectActiveTodo: Subscription | undefined;
   private routerEvents: Subscription | undefined;
 
+  private addTaskDialog: MatDialogRef<AddTaskDialogComponent, AddTaskDialogCloseDataInterface> | undefined;
   private editTodoDialog: MatDialogRef<EditTodoDialogComponent, EditTodoDialogCloseDataInterface> | undefined;
 
   public constructor(
@@ -41,7 +45,8 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
     private router: Router,
     private matDialog: MatDialog,
     private matSnackBar: MatSnackBar,
-    private todosService: TodosService
+    private todosService: TodosService,
+    private tasksService: TasksService
   ) {
   }
 
@@ -64,7 +69,13 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
   }
 
   public addTask(): void {
-
+    this.addTaskDialog = this.matDialog.open(AddTaskDialogComponent);
+    this.addTaskDialog.afterClosed().subscribe((value: AddTaskDialogCloseDataInterface | undefined) => {
+      if (!isNil(value) && !isNil(value.task)) {
+        this.tasksService.add(value.task);
+        this.matSnackBar.open('Task added');
+      }
+    });
   }
 
   public editTodo(): void {

@@ -1,0 +1,44 @@
+<div class="task-input-name-component">
+  <mat-form-field>
+
+    <!-- Label -->
+    <mat-label>Name</mat-label>
+
+    <!-- Input -->
+    <input #input
+           placeholder="Must some mustard"
+           type="text"
+           matInput
+           required
+           [formControl]="name">
+
+    <!-- Clear button -->
+    <button mat-button
+            *ngIf="value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="clear()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- Current characters -->
+    <mat-hint align="end">{{ value.length }} / {{ maxLength }}</mat-hint>
+
+    <!-- Errors -->
+    <mat-error *ngIf="name.errors?.minlength">
+      Name must be at least
+      <strong>{{ minLength }}</strong>
+      characters long
+    </mat-error>
+    <mat-error *ngIf="name.errors?.maxlength">
+      Name must be at most
+      <strong>{{ maxLength }}</strong>
+      characters long
+    </mat-error>
+    <mat-error *ngIf="name.errors?.required">
+      Name is
+      <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</div>

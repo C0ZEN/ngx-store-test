@@ -1,7 +1,10 @@
-export interface TodoInterface {
+export interface TaskInterface {
 
   // Unique id (uuid)
   id: string;
+
+  // Unique id (uuid) of the related todo
+  todoId: string;
 
   // Name
   name: string;
@@ -14,7 +17,4 @@ export interface TodoInterface {
 
   // Update date (ISO)
   updateDate: string | undefined;
-
-  // Image
-  avatarUrl: string;
 }

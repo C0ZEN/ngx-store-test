@@ -11,8 +11,8 @@ import {
 })
 export class TodosQuery extends QueryEntity<TodosState, TodoInterface> {
   public constructor(
-    protected store: TodosStore
+    protected todosStore: TodosStore
   ) {
-    super(store);
+    super(todosStore);
   }
 }
