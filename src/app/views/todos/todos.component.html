@@ -5,30 +5,30 @@
     <div class="todos-toolbar-content">
 
       <!-- Todo tab list -->
-      <nav id="todo-tab-list"
-           *ngIf="todos.length > 0"
-           mat-tab-nav-bar
-           class="tabs-fit-height"
+      <nav *ngIf="todos.length > 0"
            backgroundColor="primary"
-           color="primary">
+           class="tabs-fit-height"
+           color="primary"
+           id="todo-tab-list"
+           mat-tab-nav-bar>
 
         <!-- Todo tab -->
-        <a mat-tab-link
+        <a #rla="routerLinkActive"
            *ngFor="let todo of todos"
+           [active]="rla.isActive"
            [id]="todo.id"
            [routerLink]="['todo', todo.id]"
-           routerLinkActive
-           #rla="routerLinkActive"
-           [active]="rla.isActive">
+           mat-tab-link
+           routerLinkActive>
           {{ todo.name }}
         </a>
       </nav>
 
       <!-- Add todo button -->
-      <button id="new-todo-button"
-              (click)="addTodo()"
+      <button (click)="addTodo()"
               class="small"
               color="accent"
+              id="new-todo-button"
               mat-mini-fab
               matTooltip="Add todo"
               matTooltipPosition="after">
@@ -48,10 +48,10 @@
       <div class="actions-container">
 
         <!-- Remove all todos button -->
-        <button *ngIf="todos.length > 0"
-                mat-raised-button
+        <button (click)="removeAllTodos()"
+                *ngIf="todos.length > 0"
                 color="warn"
-                (click)="removeAllTodos()">
+                mat-raised-button>
           Remove all todos
         </button>
       </div>

@@ -3,16 +3,28 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
+import {
+  MatIconModule,
+  MatListModule
+} from '@angular/material';
 
 import { HomeComponent } from './home.component';
 
-describe('HomeComponent', () => {
+describe('HomeComponent:', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [
+        HomeComponent
+      ],
+      imports: [
+
+        // Third parties
+        MatListModule,
+        MatIconModule
+      ]
     })
       .compileComponents();
   }));
@@ -20,10 +32,17 @@ describe('HomeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('before init, it', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+  });
+
+  describe('after init, it', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
   });
 });

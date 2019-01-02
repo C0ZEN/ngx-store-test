@@ -1,13 +1,13 @@
-<div class="todos-todo-component"
-     *ngIf="todo">
+<div *ngIf="todo"
+     class="todos-todo-component">
 
   <!-- Todo card -->
   <mat-card>
     <mat-card-header>
 
       <!-- Todo avatar -->
-      <div mat-card-avatar
-           class="todo-avatar">
+      <div class="todo-avatar"
+           mat-card-avatar>
 
         <!-- Loader -->
         <div *ngIf="!isAvatarLoaded"
@@ -15,8 +15,8 @@
         </div>
 
         <!-- Image -->
-        <img [src]="todo.avatarUrl"
-             (load)="onAvatarLoad()"
+        <img (load)="onAvatarLoad()"
+             [src]="todo.avatarUrl"
              alt="avatar">
       </div>
 
@@ -39,20 +39,20 @@
   <div class="action-container">
 
     <!-- Add task button -->
-    <button mat-raised-button
+    <button (click)="addTask()"
             color="primary"
+            mat-raised-button
             matTooltip="Add task"
-            matTooltipPosition="before"
-            (click)="addTask()">
+            matTooltipPosition="before">
       Add
     </button>
 
     <!-- Edit todo button -->
-    <button mat-raised-button
+    <button (click)="editTodo()"
             color="primary"
+            mat-raised-button
             matTooltip="Edit todo"
-            matTooltipPosition="after"
-            (click)="editTodo()">
+            matTooltipPosition="after">
       Edit
     </button>
   </div>

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
+  MatDialogModule,
+  MatSnackBarModule,
   MatTooltipModule
 } from '@angular/material';
 import { TodosTodoComponent } from './todos-todo.component';
@@ -19,7 +21,9 @@ import { TodosTodoComponent } from './todos-todo.component';
     // Third parties
     MatCardModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class TodosTodoModule {

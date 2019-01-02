@@ -3,16 +3,42 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TodoInputDescriptionComponent } from './todo-input-description.component';
 
-describe('TodoInputDescriptionComponent', () => {
+describe('TodoInputDescriptionComponent:', () => {
   let component: TodoInputDescriptionComponent;
   let fixture: ComponentFixture<TodoInputDescriptionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoInputDescriptionComponent ]
+      declarations: [
+        TodoInputDescriptionComponent
+      ],
+      imports: [
+
+        // Angular
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+
+        // Third parties
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule
+      ]
     })
       .compileComponents();
   }));
@@ -20,10 +46,17 @@ describe('TodoInputDescriptionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoInputDescriptionComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('before init, it', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+  });
+
+  describe('after init, it', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
   });
 });

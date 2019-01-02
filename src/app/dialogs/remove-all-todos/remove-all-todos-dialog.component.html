@@ -16,16 +16,16 @@
   <div mat-dialog-actions>
 
     <!-- Close button -->
-    <button mat-raised-button
-            (click)="close()">
+    <button (click)="close()"
+            mat-raised-button>
       Close
     </button>
 
     <!-- Remove all todos button -->
-    <button mat-raised-button
+    <button (click)="removeAllTodos()"
+            cdkFocusInitial
             color="warn"
-            (click)="removeAllTodos()"
-            cdkFocusInitial>
+            mat-raised-button>
       Remove
     </button>
   </div>

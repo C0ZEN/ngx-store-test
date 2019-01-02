@@ -15,22 +15,22 @@
     This section is all about how the project is configured and what kind of library it uses.
   </p>
   <mat-list>
-    <ng-template ngFor
+    <ng-template [ngForOf]="configurationCategories"
                  let-category
                  let-isLastCategory="last"
-                 [ngForOf]="configurationCategories">
+                 ngFor>
       <h3 mat-subheader>{{ category.name }}</h3>
       <mat-list-item *ngFor="let item of category.items">
-        <mat-icon matListIcon
-                  [svgIcon]="item.icon">
+        <mat-icon [svgIcon]="item.icon"
+                  matListIcon>
         </mat-icon>
-        <p matLine
-           class="mat-body">
+        <p class="mat-body"
+           matLine>
           {{ item.label }}
         </p>
         <p *ngIf="item.description"
-           matLine
-           class="mat-small color-grey white-space-normal">
+           class="mat-small color-grey white-space-normal"
+           matLine>
           {{ item.description }}
         </p>
       </mat-list-item>
@@ -45,16 +45,16 @@
   </p>
   <mat-list>
     <mat-list-item *ngFor="let feature of featuresCategories">
-      <mat-icon matListIcon
-                [svgIcon]="feature.icon">
+      <mat-icon [svgIcon]="feature.icon"
+                matListIcon>
       </mat-icon>
-      <p matLine
-         class="mat-body">
+      <p class="mat-body"
+         matLine>
         {{ feature.label }}
       </p>
       <p *ngIf="feature.description"
-         matLine
-         class="mat-small color-grey white-space-normal">
+         class="mat-small color-grey white-space-normal"
+         matLine>
         {{ feature.description }}
       </p>
     </mat-list-item>
