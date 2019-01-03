@@ -1,0 +1,39 @@
+sudo: required
+
+# Useful for the tests
+addons:
+  chrome: stable
+
+# Use node
+language: node_js
+node_js:
+  - "8"
+
+# Better for performances; enable cache
+cache: npm
+install:
+  - npm install
+
+# Run the scripts
+script:
+  - npm run lint
+  - npm run test-ci
+
+# Creation a complete coverage after the tests
+after_script:
+  - 'cat ./coverage/lcov.info | coveralls'
+  - npm install -g codeclimate-test-reporter
+  - codeclimate-test-reporter < ./coverage/lcov.info
+
+# Allow me to easily track Travis CI
+notifications:
+  email:
+    recipients:
+      - geoffrey.testelin@gmail.com
+    on_success: change
+    on_failure: always
+
+branches:
+  only:
+    - master
+    - develop
