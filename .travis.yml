@@ -8,8 +8,6 @@ addons:
 language: node_js
 node_js:
   - "8"
-  - "7"
-  - "6"
 
 # Better for performances; enable cache
 cache: npm
