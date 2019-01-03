@@ -23,10 +23,10 @@ export class TaskInputDescriptionComponent implements OnInit {
   public maxLength: number = 200;
 
   @Input('taskInputDescriptionDefault')
-  private defaultName: string | undefined;
+  public defaultName: string | undefined;
 
   @Output('taskInputDescriptionFormControl')
-  private formControl: EventEmitter<FormControl> = new EventEmitter();
+  public formControl: EventEmitter<FormControl> = new EventEmitter();
 
   public get value(): string {
     if (!isNil(this.description) && !isNil(this.description.value)) {
