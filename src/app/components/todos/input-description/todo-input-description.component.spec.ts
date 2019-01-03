@@ -48,13 +48,13 @@ describe('TodoInputDescriptionComponent:', () => {
     component = fixture.componentInstance;
   });
 
-  describe('before init, it', () => {
+  describe('before init', () => {
     it('should create', () => {
       expect(component).toBeTruthy();
     });
   });
 
-  describe('after init, it', () => {
+  describe('after init', () => {
     beforeEach(() => {
       fixture.detectChanges();
     });
