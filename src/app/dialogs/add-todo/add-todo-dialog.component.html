@@ -10,13 +10,13 @@
 
       <!-- Todo input name -->
       <app-todo-input-name #todoInputName
-                           [todoInputNameDefault]="todo.name"
-                           (todoInputNameFormControl)="todoForm.addControl('name', $event)">
+                           (todoInputNameFormControl)="todoForm.addControl('name', $event)"
+                           [todoInputNameDefault]="todo.name">
       </app-todo-input-name>
 
       <!-- Todo input description -->
-      <app-todo-input-description [todoInputDescriptionDefault]="todo.description"
-                                  (todoInputDescriptionFormControl)="todoForm.addControl('description', $event)">
+      <app-todo-input-description (todoInputDescriptionFormControl)="todoForm.addControl('description', $event)"
+                                  [todoInputDescriptionDefault]="todo.description">
       </app-todo-input-description>
     </form>
   </div>
@@ -26,16 +26,16 @@
        mat-dialog-actions>
 
     <!-- Close button -->
-    <button mat-raised-button
-            (click)="close()">
+    <button (click)="close()"
+            mat-raised-button>
       Close
     </button>
 
     <!-- Add todo button -->
-    <button mat-raised-button
-            color="primary"
+    <button (click)="addTodo()"
             [disabled]="todoForm.invalid"
-            (click)="addTodo()">
+            color="primary"
+            mat-raised-button>
       Add
     </button>
   </div>
