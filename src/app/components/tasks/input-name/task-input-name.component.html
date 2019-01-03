@@ -6,19 +6,19 @@
 
     <!-- Input -->
     <input #input
-           placeholder="Must some mustard"
-           type="text"
+           [formControl]="name"
            matInput
+           placeholder="Must some mustard"
            required
-           [formControl]="name">
+           type="text">
 
     <!-- Clear button -->
-    <button mat-button
+    <button (click)="clear()"
             *ngIf="value"
-            matSuffix
-            mat-icon-button
             aria-label="Clear"
-            (click)="clear()">
+            mat-button
+            mat-icon-button
+            matSuffix>
       <mat-icon>close</mat-icon>
     </button>
 

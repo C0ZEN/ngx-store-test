@@ -13,16 +13,16 @@
     <div class="right-content">
 
       <!-- Navigation -->
-      <nav mat-tab-nav-bar
+      <nav backgroundColor="primary"
            class="navbar-tabs tabs-fit-height"
-           backgroundColor="primary"
-           color="primary">
-        <a mat-tab-link
+           color="primary"
+           mat-tab-nav-bar>
+        <a #rla="routerLinkActive"
            *ngFor="let link of links"
+           [active]="rla.isActive"
            [routerLink]="link.path"
-           routerLinkActive
-           #rla="routerLinkActive"
-           [active]="rla.isActive">
+           mat-tab-link
+           routerLinkActive>
           {{ link.label }}
         </a>
       </nav>
