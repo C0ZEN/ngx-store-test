@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018 Testelin Geoffrey
+Copyright (c) 2018 - [TESTELIN "C0ZEN" Geoffrey](www.geoffreytestelin.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
