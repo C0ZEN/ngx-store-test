@@ -17,7 +17,6 @@ env:
     - CC_TEST_REPORTER_ID=3ceaa52c102780d7c320a400f835b7704db90d262d9f907590fd1f8324feb598
 
 before_install:
-  - nvm install
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
