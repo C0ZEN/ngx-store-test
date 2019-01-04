@@ -10,17 +10,16 @@ import {
   Validators
 } from '@angular/forms';
 import { isNil } from 'lodash';
+import { TextValidatorModel } from '../../../models/validators/text/text-validator.model';
 
 @Component({
   selector: 'app-task-input-description',
   templateUrl: './task-input-description.component.html',
   styleUrls: [ './task-input-description.component.scss' ]
 })
-export class TaskInputDescriptionComponent implements OnInit {
+export class TaskInputDescriptionComponent extends TextValidatorModel implements OnInit {
   public description: FormControl | undefined;
-
-  public minLength: number = 2;
-  public maxLength: number = 200;
+  public maxLength = 200;
 
   @Input('taskInputDescriptionDefault')
   public defaultName: string | undefined;
@@ -36,6 +35,7 @@ export class TaskInputDescriptionComponent implements OnInit {
   }
 
   public constructor() {
+    super();
   }
 
   public ngOnInit(): void {

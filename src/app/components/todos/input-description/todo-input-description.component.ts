@@ -10,17 +10,16 @@ import {
   Validators
 } from '@angular/forms';
 import { isNil } from 'lodash';
+import { TextValidatorModel } from '../../../models/validators/text/text-validator.model';
 
 @Component({
   selector: 'app-todo-input-description',
   templateUrl: './todo-input-description.component.html',
   styleUrls: [ './todo-input-description.component.scss' ]
 })
-export class TodoInputDescriptionComponent implements OnInit {
+export class TodoInputDescriptionComponent extends TextValidatorModel implements OnInit {
   public description: FormControl | undefined;
-
-  public minLength: number = 2;
-  public maxLength: number = 200;
+  public maxLength = 200;
 
   @Input('todoInputDescriptionDefault')
   private defaultName: string | undefined;
@@ -36,6 +35,7 @@ export class TodoInputDescriptionComponent implements OnInit {
   }
 
   public constructor() {
+    super();
   }
 
   public ngOnInit(): void {
