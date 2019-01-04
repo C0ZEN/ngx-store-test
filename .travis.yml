@@ -10,7 +10,10 @@ node_js:
   - "8"
 
 # Better for performances; enable cache
-cache: npm
+cache:
+  npm: true
+  directories:
+    - node_modules
 
 env:
   global:
@@ -33,6 +36,7 @@ after_script:
   - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 # Allow me to easily track Travis CI
 notifications:
