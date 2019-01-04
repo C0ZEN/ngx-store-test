@@ -33,6 +33,16 @@ notifications:
     on_success: change
     on_failure: always
 
+# Plugins
+plugins:
+  tslint:
+    enabled: false # No need to enable it since it is already check with npm script
+  editorconfig:
+    enabled: true
+    config:
+      editorconfig: .editorconfig
+
+# White list of branches to build
 branches:
   only:
     - master
