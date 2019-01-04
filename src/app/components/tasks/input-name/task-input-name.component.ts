@@ -12,17 +12,15 @@ import {
   Validators
 } from '@angular/forms';
 import { isNil } from 'lodash';
+import { TextValidatorModel } from '../../../models/validators/text/text-validator.model';
 
 @Component({
   selector: 'app-task-input-name',
   templateUrl: './task-input-name.component.html',
   styleUrls: [ './task-input-name.component.scss' ]
 })
-export class TaskInputNameComponent implements OnInit {
+export class TaskInputNameComponent extends TextValidatorModel implements OnInit {
   public name: FormControl | undefined;
-
-  public minLength: number = 2;
-  public maxLength: number = 60;
 
   @ViewChild('input', {
     read: ElementRef
@@ -43,6 +41,7 @@ export class TaskInputNameComponent implements OnInit {
   }
 
   public constructor() {
+    super();
   }
 
   public ngOnInit(): void {
