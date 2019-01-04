@@ -37,6 +37,7 @@ after_script:
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
 
 # Allow me to easily track Travis CI
 notifications:
