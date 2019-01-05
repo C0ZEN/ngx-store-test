@@ -16,8 +16,12 @@ export class MaterialIconsService {
   }
 
   public fetchIcons(): void {
-    forEach(MaterialIcons, (icon: MaterialIconsIconInterface) => {
+    forEach(this.getIcons(), (icon: MaterialIconsIconInterface) => {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/images/${icon.path}`));
     });
+  }
+
+  public getIcons(): MaterialIconsIconInterface[] {
+    return MaterialIcons;
   }
 }
