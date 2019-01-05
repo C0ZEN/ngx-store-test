@@ -1,5 +1,5 @@
 # NgxStoreTest
-[![Software License][license-image]](LICENSE) [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Maintainability][code-climate-maintainability-image]][code-climate-maintainability-url] [![Test Coverage][code-climate-coverage-image]][code-climate-coverage-url]
+[![Software License][license-image]](LICENSE) [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Maintainability][code-climate-maintainability-image]][code-climate-maintainability-url] [![Test Coverage][code-climate-coverage-image]][code-climate-coverage-url] [![FOSSA Status][fossa-image]][fossa-url]
 > Angular playground project created as a showcase to start new projects faster and with confidence
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
@@ -53,3 +53,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 [code-climate-maintainability-url]: https://codeclimate.com/github/C0ZEN/ngx-store-test/maintainability
 [code-climate-coverage-image]: https://api.codeclimate.com/v1/badges/8c075d8d6ad3a94fb548/test_coverage
 [code-climate-coverage-url]: https://codeclimate.com/github/C0ZEN/ngx-store-test/test_coverage
+[fossa-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2FC0ZEN%2Fngx-store-test.svg?type=shield
+[fossa-url]: https://app.fossa.io/projects/git%2Bgithub.com%2FC0ZEN%2Fngx-store-test?ref=badge_shield
