@@ -1,5 +1,6 @@
 # NgxStoreTest
 [![Software License][license-image]](LICENSE) [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Maintainability][code-climate-maintainability-image]][code-climate-maintainability-url] [![Test Coverage][code-climate-coverage-image]][code-climate-coverage-url]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FC0ZEN%2Fngx-store-test.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FC0ZEN%2Fngx-store-test?ref=badge_shield)
 > Angular playground project created as a showcase to start new projects faster and with confidence
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
@@ -35,6 +36,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FC0ZEN%2Fngx-store-test.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FC0ZEN%2Fngx-store-test?ref=badge_large)
 
 ## Authors
 
