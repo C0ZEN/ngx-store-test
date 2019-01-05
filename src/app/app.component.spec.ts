@@ -10,7 +10,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
 import { AppModService } from './services/app/app-mod.service';
 import { MaterialIconsService } from './services/icons/material-icons.service';
 
-describe('AppComponent', () => {
+describe('AppComponent:', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 

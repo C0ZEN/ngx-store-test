@@ -1,6 +1,6 @@
 import { AppModsEnum } from './app-mods.enum';
 
-describe('AppModsEnum', () => {
+describe('AppModsEnum:', () => {
   it('should have a member "PRODUCTION" which equals "production"', () => {
     expect(AppModsEnum.PRODUCTION).toBe('production');
   });
