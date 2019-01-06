@@ -16,6 +16,7 @@ import {
   MatInputModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as _ from 'lodash';
 
 import { TaskInputDescriptionComponent } from './task-input-description.component';
 
@@ -148,11 +149,22 @@ describe('TaskInputDescriptionComponent:', () => {
       it('should call "setValue" from property "description" with null as parameter when property "description" is not nil', () => {
         component.description = new FormControl('');
         spyOn(component.description, 'setValue').and.stub();
+        spyOn(_, 'isNil').and.returnValue(false);
 
         component.clear();
 
         expect(component.description.setValue).toHaveBeenCalledTimes(1);
         expect(component.description.setValue).toHaveBeenCalledWith(null);
+      });
+
+      it('should not call "setValue" from property "description" when property "description" is undefined', () => {
+        component.description = new FormControl('');
+        spyOn(component.description, 'setValue').and.stub();
+        spyOn(_, 'isNil').and.returnValue(true);
+
+        component.clear();
+
+        expect(component.description.setValue).not.toHaveBeenCalled();
       });
     });
   });
