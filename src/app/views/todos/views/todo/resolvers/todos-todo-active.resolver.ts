@@ -3,10 +3,7 @@ import {
   ActivatedRouteSnapshot,
   Resolve
 } from '@angular/router';
-import {
-  isEmpty,
-  isString
-} from 'lodash';
+import * as _ from 'lodash';
 import { TodosService } from '../../../../../stores/todos/todos.service';
 
 @Injectable({
@@ -20,7 +17,7 @@ export class TodosTodoActiveResolver implements Resolve<void> {
 
   public resolve(route: ActivatedRouteSnapshot): void {
     const todoId: string | null = route.paramMap.get('todoId');
-    if (isString(todoId) && !isEmpty(todoId)) {
+    if (_.isString(todoId) && !_.isEmpty(todoId)) {
       this.todosService.activate(todoId);
     }
   }

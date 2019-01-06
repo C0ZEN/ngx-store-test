@@ -9,10 +9,7 @@ import {
   FormGroup
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import {
-  isNil,
-  merge
-} from 'lodash';
+import * as _ from 'lodash';
 import { TodoInputNameComponent } from '../../components/todos/input-name/todo-input-name.component';
 import { TaskInterface } from '../../stores/tasks/task.interface';
 import { TasksService } from '../../stores/tasks/tasks.service';
@@ -32,7 +29,7 @@ export class AddTaskDialogComponent implements OnInit, AfterViewInit {
   public taskInputName: TodoInputNameComponent | undefined;
 
   public get name(): AbstractControl | null {
-    if (!isNil(this.taskForm)) {
+    if (!_.isNil(this.taskForm)) {
       return this.taskForm.get('name');
     }
     return null;
@@ -52,16 +49,16 @@ export class AddTaskDialogComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     setTimeout(() => {
-      if (!isNil(this.taskInputName)) {
+      if (!_.isNil(this.taskInputName)) {
         this.taskInputName.focus();
       }
     });
   }
 
   public addTask(): void {
-    if (!isNil(this.taskForm)) {
+    if (!_.isNil(this.taskForm)) {
       this.matDialogRef.close({
-        task: merge({}, this.task, this.taskForm.getRawValue())
+        task: _.merge({}, this.task, this.taskForm.getRawValue())
       });
     }
   }

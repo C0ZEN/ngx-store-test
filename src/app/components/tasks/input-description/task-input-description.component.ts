@@ -9,7 +9,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
-import { isNil } from 'lodash';
+import * as _ from 'lodash';
 import { TextValidatorModel } from '../../../models/validators/text/text-validator.model';
 
 @Component({
@@ -28,7 +28,7 @@ export class TaskInputDescriptionComponent extends TextValidatorModel implements
   public formControl: EventEmitter<FormControl> = new EventEmitter();
 
   public get value(): string {
-    if (!isNil(this.description) && !isNil(this.description.value)) {
+    if (!_.isNil(this.description) && !_.isNil(this.description.value)) {
       return this.description.value;
     }
     return '';
@@ -47,7 +47,7 @@ export class TaskInputDescriptionComponent extends TextValidatorModel implements
   }
 
   public clear(): void {
-    if (!isNil(this.description)) {
+    if (!_.isNil(this.description)) {
       this.description.setValue(null);
     }
   }

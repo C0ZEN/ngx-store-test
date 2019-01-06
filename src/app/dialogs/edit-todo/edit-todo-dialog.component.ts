@@ -9,10 +9,7 @@ import {
   FormGroup
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import {
-  isNil,
-  merge
-} from 'lodash';
+import * as _ from 'lodash';
 import { TodoInputNameComponent } from '../../components/todos/input-name/todo-input-name.component';
 import { TodoInterface } from '../../stores/todos/todo.interface';
 import { TodosQuery } from '../../stores/todos/todos.query';
@@ -32,7 +29,7 @@ export class EditTodoDialogComponent implements OnInit, AfterViewInit {
   public todoInputName: TodoInputNameComponent | undefined;
 
   public get name(): AbstractControl | null {
-    if (!isNil(this.todoForm)) {
+    if (!_.isNil(this.todoForm)) {
       return this.todoForm.get('name');
     }
     return null;
@@ -52,16 +49,16 @@ export class EditTodoDialogComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     setTimeout(() => {
-      if (!isNil(this.todoInputName)) {
+      if (!_.isNil(this.todoInputName)) {
         this.todoInputName.focus();
       }
     });
   }
 
   public editTodo(): void {
-    if (!isNil(this.todoForm)) {
+    if (!_.isNil(this.todoForm)) {
       this.matDialogRef.close({
-        todo: merge({}, this.todo, this.todoForm.getRawValue())
+        todo: _.merge({}, this.todo, this.todoForm.getRawValue())
       });
     }
   }

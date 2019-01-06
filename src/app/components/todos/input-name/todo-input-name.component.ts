@@ -11,7 +11,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
-import { isNil } from 'lodash';
+import * as _ from 'lodash';
 import { TextValidatorModel } from '../../../models/validators/text/text-validator.model';
 
 @Component({
@@ -34,7 +34,7 @@ export class TodoInputNameComponent extends TextValidatorModel implements OnInit
   private formControl: EventEmitter<FormControl> = new EventEmitter();
 
   public get value(): string {
-    if (!isNil(this.name) && !isNil(this.name.value)) {
+    if (!_.isNil(this.name) && !_.isNil(this.name.value)) {
       return this.name.value;
     }
     return '';
@@ -54,13 +54,13 @@ export class TodoInputNameComponent extends TextValidatorModel implements OnInit
   }
 
   public clear(): void {
-    if (!isNil(this.name)) {
+    if (!_.isNil(this.name)) {
       this.name.setValue(null);
     }
   }
 
   public focus(): void {
-    if (!isNil(this.input)) {
+    if (!_.isNil(this.input)) {
       this.input.nativeElement.focus();
     }
   }

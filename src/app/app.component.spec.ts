@@ -96,8 +96,8 @@ describe('AppComponent:', () => {
 
         component.ngOnDestroy();
 
-        expect(elements[0].innerHTML).toBe('');
-        expect(elements[1].innerHTML).toBe('');
+        expect(elements[ 0 ].innerHTML).toBe('');
+        expect(elements[ 1 ].innerHTML).toBe('');
       });
     });
   });

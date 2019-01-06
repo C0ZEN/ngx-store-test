@@ -13,7 +13,7 @@ import {
   NavigationEnd,
   Router
 } from '@angular/router';
-import { isNil } from 'lodash';
+import * as _ from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
 import { AddTodoDialogComponent } from '../../dialogs/add-todo/add-todo-dialog.component';
@@ -74,7 +74,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   public addTodo(): void {
     this.addTodoDialog = this.matDialog.open(AddTodoDialogComponent);
     this.addTodoDialog.afterClosed().subscribe((value: AddTodoDialogCloseDataInterface | undefined) => {
-      if (!isNil(value) && !isNil(value.todo)) {
+      if (!_.isNil(value) && !_.isNil(value.todo)) {
         this.todosService.add(value.todo);
         this.router.navigate([
           'todo',
@@ -92,7 +92,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   public removeAllTodos(): void {
     this.removeAllTodosDialog = this.matDialog.open(RemoveAllTodosDialogComponent);
     this.removeAllTodosDialog.afterClosed().subscribe((value: RemoveAllTodosDialogCloseDataInterface | undefined) => {
-      if (!isNil(value) && value.confirmRemove) {
+      if (!_.isNil(value) && value.confirmRemove) {
         this.todosService.reset();
         this.matSnackBar.open('All todos removed');
       }

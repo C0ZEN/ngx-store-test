@@ -12,7 +12,7 @@ import {
   NavigationEnd,
   Router
 } from '@angular/router';
-import { isNil } from 'lodash';
+import * as _ from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
 import { AddTaskDialogComponent } from '../../../../dialogs/add-task/add-task-dialog.component';
@@ -71,7 +71,7 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
   public addTask(): void {
     this.addTaskDialog = this.matDialog.open(AddTaskDialogComponent);
     this.addTaskDialog.afterClosed().subscribe((value: AddTaskDialogCloseDataInterface | undefined) => {
-      if (!isNil(value) && !isNil(value.task)) {
+      if (!_.isNil(value) && !_.isNil(value.task)) {
         this.tasksService.add(value.task);
         this.matSnackBar.open('Task added');
       }
@@ -81,7 +81,7 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
   public editTodo(): void {
     this.editTodoDialog = this.matDialog.open(EditTodoDialogComponent);
     this.editTodoDialog.afterClosed().subscribe((value: EditTodoDialogCloseDataInterface | undefined) => {
-      if (!isNil(value) && !isNil(value.todo)) {
+      if (!_.isNil(value) && !_.isNil(value.todo)) {
         this.todosService.edit(value.todo);
         this.matSnackBar.open('Todo edited');
       }
