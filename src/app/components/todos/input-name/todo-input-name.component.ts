@@ -22,16 +22,16 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
 export class TodoInputNameComponent extends TextValidatorModel implements OnInit {
   public name: FormControl | undefined;
 
+  @Input('todoInputNameDefault')
+  public defaultValue: string | undefined;
+
+  @Output('todoInputNameFormControl')
+  public formControlChange: EventEmitter<FormControl> = new EventEmitter();
+
   @ViewChild('input', {
     read: ElementRef
   })
   public input: ElementRef | undefined;
-
-  @Input('todoInputNameDefault')
-  private defaultName: string | undefined;
-
-  @Output('todoInputNameFormControl')
-  private formControl: EventEmitter<FormControl> = new EventEmitter();
 
   public get value(): string {
     if (!_.isNil(this.name) && !_.isNil(this.name.value)) {
@@ -45,12 +45,12 @@ export class TodoInputNameComponent extends TextValidatorModel implements OnInit
   }
 
   public ngOnInit(): void {
-    this.name = new FormControl(this.defaultName, [
+    this.name = new FormControl(this.defaultValue, [
       Validators.required,
       Validators.minLength(this.minLength),
       Validators.maxLength(this.maxLength)
     ]);
-    this.formControl.emit(this.name);
+    this.formControlChange.emit(this.name);
   }
 
   public clear(): void {

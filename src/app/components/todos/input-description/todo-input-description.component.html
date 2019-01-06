@@ -1,4 +1,4 @@
-<div *ngIf="description"
+<div *ngIf="formControl"
      class="todo-input-description-component">
   <mat-form-field>
 
@@ -6,7 +6,7 @@
     <mat-label>Description</mat-label>
 
     <!-- Textarea -->
-    <textarea [formControl]="description"
+    <textarea [formControl]="formControl"
               cdkAutosizeMaxRows="5"
               cdkAutosizeMinRows="2"
               cdkTextareaAutosize
@@ -28,12 +28,12 @@
     <mat-hint align="end">{{ value.length }} / {{ maxLength }}</mat-hint>
 
     <!-- Errors -->
-    <mat-error *ngIf="description.errors?.minlength">
+    <mat-error *ngIf="formControl.errors?.minlength">
       Description must be at least
       <strong>{{ minLength }}</strong>
       characters long
     </mat-error>
-    <mat-error *ngIf="description.errors?.maxlength">
+    <mat-error *ngIf="formControl.errors?.maxlength">
       Description must be at most
       <strong>{{ maxLength }}</strong>
       characters long

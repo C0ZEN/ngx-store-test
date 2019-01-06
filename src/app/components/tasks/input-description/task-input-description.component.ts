@@ -18,18 +18,18 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './task-input-description.component.scss' ]
 })
 export class TaskInputDescriptionComponent extends TextValidatorModel implements OnInit {
-  public description: FormControl | undefined;
+  public formControl: FormControl | undefined;
   public maxLength = 200;
 
   @Input('taskInputDescriptionDefault')
-  public defaultName: string | undefined;
+  public defaultValue: string | undefined;
 
   @Output('taskInputDescriptionFormControl')
-  public formControl: EventEmitter<FormControl> = new EventEmitter();
+  public formControlChange: EventEmitter<FormControl> = new EventEmitter();
 
   public get value(): string {
-    if (!_.isNil(this.description) && !_.isNil(this.description.value)) {
-      return this.description.value;
+    if (!_.isNil(this.formControl) && !_.isNil(this.formControl.value)) {
+      return this.formControl.value;
     }
     return '';
   }
@@ -39,16 +39,16 @@ export class TaskInputDescriptionComponent extends TextValidatorModel implements
   }
 
   public ngOnInit(): void {
-    this.description = new FormControl(this.defaultName, [
+    this.formControl = new FormControl(this.defaultValue, [
       Validators.minLength(this.minLength),
       Validators.maxLength(this.maxLength)
     ]);
-    this.formControl.emit(this.description);
+    this.formControlChange.emit(this.formControl);
   }
 
   public clear(): void {
-    if (!_.isNil(this.description)) {
-      this.description.setValue(null);
+    if (!_.isNil(this.formControl)) {
+      this.formControl.setValue(null);
     }
   }
 }
