@@ -22,10 +22,10 @@ export class TodoInputDescriptionComponent extends TextValidatorModel implements
   public maxLength = 200;
 
   @Input('todoInputDescriptionDefault')
-  private defaultName: string | undefined;
+  public defaultName: string | undefined;
 
   @Output('todoInputDescriptionFormControl')
-  private formControl: EventEmitter<FormControl> = new EventEmitter();
+  public formControl: EventEmitter<FormControl> = new EventEmitter();
 
   public get value(): string {
     if (!_.isNil(this.description) && !_.isNil(this.description.value)) {
