@@ -81,6 +81,7 @@
           "configurations": {
             "dev": {
               "hmr": true,
+              "hmrWarning": false,
               "browserTarget": "ngx-store-test:build:dev"
             },
             "production": {
