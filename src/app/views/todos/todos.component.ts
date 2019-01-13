@@ -13,7 +13,7 @@ import {
   NavigationEnd,
   Router
 } from '@angular/router';
-import { isNil } from 'lodash';
+import * as _ from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
 import { AddTodoDialogComponent } from '../../dialogs/add-todo/add-todo-dialog.component';
@@ -34,8 +34,8 @@ export class TodosComponent implements OnInit, OnDestroy {
   public todos: TodoInterface[] = [];
   public currentUrl: string | undefined;
 
-  private selectAllTodos: Subscription | undefined;
-  private routerEvents: Subscription | undefined;
+  private selectAllTodosSubscription: Subscription | undefined;
+  private routerEventsSubscription: Subscription | undefined;
 
   private removeAllTodosDialog: MatDialogRef<RemoveAllTodosDialogComponent, RemoveAllTodosDialogCloseDataInterface> | undefined;
   private addTodoDialog: MatDialogRef<AddTodoDialogComponent, AddTodoDialogCloseDataInterface> | undefined;
@@ -51,20 +51,16 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-
-    // Always sync with the complete list of todos
-    this.selectAllTodos = this.todosQuery.selectAll().subscribe((allTodos: TodoInterface[]) => {
+    this.selectAllTodosSubscription = this.todosQuery.selectAll().subscribe((allTodos: TodoInterface[]) => {
       this.todos = allTodos;
     });
 
-    // Update the current url when the navigation occur in the todos views
-    this.routerEvents = this.router.events.subscribe(routerEvent => {
+    this.routerEventsSubscription = this.router.events.subscribe(routerEvent => {
       if (routerEvent instanceof NavigationEnd) {
         this.currentUrl = routerEvent.url;
       }
     });
 
-    // Get the current router url the first time this component is created
     this.currentUrl = this.router.url;
   }
 
@@ -73,8 +69,9 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   public addTodo(): void {
     this.addTodoDialog = this.matDialog.open(AddTodoDialogComponent);
+
     this.addTodoDialog.afterClosed().subscribe((value: AddTodoDialogCloseDataInterface | undefined) => {
-      if (!isNil(value) && !isNil(value.todo)) {
+      if (!_.isNil(value)) {
         this.todosService.add(value.todo);
         this.router.navigate([
           'todo',
@@ -91,8 +88,9 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   public removeAllTodos(): void {
     this.removeAllTodosDialog = this.matDialog.open(RemoveAllTodosDialogComponent);
+
     this.removeAllTodosDialog.afterClosed().subscribe((value: RemoveAllTodosDialogCloseDataInterface | undefined) => {
-      if (!isNil(value) && value.confirmRemove) {
+      if (!_.isNil(value) && value.confirmRemove) {
         this.todosService.reset();
         this.matSnackBar.open('All todos removed');
       }

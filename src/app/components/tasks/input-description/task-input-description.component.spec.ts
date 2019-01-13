@@ -1,4 +1,3 @@
-import { EventEmitter } from '@angular/core';
 import {
   async,
   ComponentFixture,
@@ -55,10 +54,6 @@ describe('TaskInputDescriptionComponent:', () => {
       expect(component).toBeTruthy();
     });
 
-    it('should have a property "description" which is undefined', () => {
-      expect(component.description).toBeUndefined();
-    });
-
     it('should have a property "minLength" which equal 2', () => {
       expect(component.minLength).toBe(2);
     });
@@ -67,12 +62,12 @@ describe('TaskInputDescriptionComponent:', () => {
       expect(component.maxLength).toBe(200);
     });
 
-    it('should have an @Input "defaultName" which is undefined', () => {
-      expect(component.defaultName).toBeUndefined();
+    it('should have a property "formControl" which is a "FormControl"', () => {
+      expect(component.formControl).toEqual(jasmine.any(FormControl));
     });
 
-    it('should have an @Input "formControl" which is an EventEmitter', () => {
-      expect(component.formControl).toEqual(new EventEmitter());
+    it('should have an @Input "defaultValue" which is undefined', () => {
+      expect(component.defaultValue).toBeUndefined();
     });
   });
 
@@ -81,36 +76,30 @@ describe('TaskInputDescriptionComponent:', () => {
       fixture.detectChanges();
     });
 
-    describe('get value()', () => {
+    describe('get value', () => {
       let value: any;
 
-      it('should return an empty string when property "description" is undefined', () => {
-        component.description = undefined;
-
-        expect(component.value).toBe('');
-      });
-
-      it('should return an empty string when property "description.value" is null', () => {
+      it('should return an empty string when property "formControl.value" is null', () => {
         value = null;
-        component.description = {
+        component.formControl = {
           value: value
         } as FormControl;
 
         expect(component.value).toBe('');
       });
 
-      it('should return an empty string when property "description.value" is undefined', () => {
+      it('should return an empty string when property "formControl.value" is undefined', () => {
         value = undefined;
-        component.description = {
+        component.formControl = {
           value: value
         } as FormControl;
 
         expect(component.value).toBe('');
       });
 
-      it('should return the value when property "description.value" is not nil', () => {
+      it('should return the value when property "formControl.value" is not nil', () => {
         value = 'dummy';
-        component.description = {
+        component.formControl = {
           value: value
         } as FormControl;
 
@@ -119,40 +108,27 @@ describe('TaskInputDescriptionComponent:', () => {
     });
 
     describe('ngOnInit()', () => {
-      it('should create a "FormControl" and store it in property "description"', () => {
-        component.ngOnInit();
-
-        expect(component.description).toEqual(jasmine.any(FormControl));
-      });
-
-      it('should set as default value for property "description" the value of property "defaultName"', () => {
-        component.defaultName = 'dummy';
-        component.description = new FormControl('');
+      it('should call "setValue" from "formControl" property and use the property "defaultValue" as parameter', () => {
+        component.defaultValue = 'dummy';
+        component.formControl = new FormControl('');
+        spyOn(component.formControl, 'setValue').and.stub();
 
         component.ngOnInit();
 
-        expect(component.description.value).toEqual(component.defaultName);
-      });
-
-      it('should call "emit" from property "formControl" with property "description" as parameter', () => {
-        spyOn(component.formControl, 'emit').and.stub();
-
-        component.ngOnInit();
-
-        expect(component.formControl.emit).toHaveBeenCalledTimes(1);
-        expect(component.formControl.emit).toHaveBeenCalledWith(component.description);
+        expect(component.formControl.setValue).toHaveBeenCalledTimes(1);
+        expect(component.formControl.setValue).toHaveBeenCalledWith(component.defaultValue);
       });
     });
 
     describe('clear()', () => {
-      it('should call "setValue" from property "description" with null as parameter when property "description" is not nil', () => {
-        component.description = new FormControl('');
-        spyOn(component.description, 'setValue').and.stub();
+      it('should call "setValue" from property "formControl" with null as parameter', () => {
+        component.formControl = new FormControl('');
+        spyOn(component.formControl, 'setValue').and.stub();
 
         component.clear();
 
-        expect(component.description.setValue).toHaveBeenCalledTimes(1);
-        expect(component.description.setValue).toHaveBeenCalledWith(null);
+        expect(component.formControl.setValue).toHaveBeenCalledTimes(1);
+        expect(component.formControl.setValue).toHaveBeenCalledWith(null);
       });
     });
   });

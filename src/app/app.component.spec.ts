@@ -84,20 +84,20 @@ describe('AppComponent:', () => {
       });
 
       it('should empty "innerHTML" of each "cdk-overlay-container" elements fetched', () => {
-        const elements = [
+        const elements: Element[] = [
           {
             innerHTML: 'dummy1'
-          },
+          } as Element,
           {
             innerHTML: 'dummy2'
-          }
+          } as Element
         ];
         spyOn(document, 'getElementsByClassName').and.returnValue(elements);
 
         component.ngOnDestroy();
 
-        expect(elements[0].innerHTML).toBe('');
-        expect(elements[1].innerHTML).toBe('');
+        expect(elements[ 0 ].innerHTML).toBe('');
+        expect(elements[ 1 ].innerHTML).toBe('');
       });
     });
   });

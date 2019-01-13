@@ -9,11 +9,9 @@ import {
   FormGroup
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import {
-  isNil,
-  merge
-} from 'lodash';
-import { TodoInputNameComponent } from '../../components/todos/input-name/todo-input-name.component';
+import * as _ from 'lodash';
+import { TaskInputDescriptionComponent } from '../../components/tasks/input-description/task-input-description.component';
+import { TaskInputNameComponent } from '../../components/tasks/input-name/task-input-name.component';
 import { TaskInterface } from '../../stores/tasks/task.interface';
 import { TasksService } from '../../stores/tasks/tasks.service';
 import { AddTaskDialogCloseDataInterface } from './interfaces/add-task-dialog-close-data.interface';
@@ -25,14 +23,16 @@ import { AddTaskDialogCloseDataInterface } from './interfaces/add-task-dialog-cl
 })
 export class AddTaskDialogComponent implements OnInit, AfterViewInit {
   public task: TaskInterface | undefined;
-
   public taskForm: FormGroup | undefined;
 
   @ViewChild('taskInputName')
-  public taskInputName: TodoInputNameComponent | undefined;
+  public taskInputName: TaskInputNameComponent | undefined;
+
+  @ViewChild('taskInputDescription')
+  public taskInputDescription: TaskInputDescriptionComponent | undefined;
 
   public get name(): AbstractControl | null {
-    if (!isNil(this.taskForm)) {
+    if (!_.isNil(this.taskForm)) {
       return this.taskForm.get('name');
     }
     return null;
@@ -52,16 +52,25 @@ export class AddTaskDialogComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     setTimeout(() => {
-      if (!isNil(this.taskInputName)) {
-        this.taskInputName.focus();
+      if (!_.isNil(this.taskForm)) {
+        if (!_.isNil(this.taskInputName)) {
+          this.taskForm.addControl('name', this.taskInputName.formControl);
+          this.taskInputName.focus();
+        }
+        if (!_.isNil(this.taskInputDescription)) {
+          this.taskForm.addControl('description', this.taskInputDescription.formControl);
+        }
       }
     });
   }
 
   public addTask(): void {
-    if (!isNil(this.taskForm)) {
+    if (!_.isNil(this.taskForm)) {
       this.matDialogRef.close({
-        task: merge({}, this.task, this.taskForm.getRawValue())
+        task: {
+          ...this.task,
+          ...this.taskForm.getRawValue()
+        }
       });
     }
   }

@@ -3,7 +3,7 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { forEach } from 'lodash';
+import * as _ from 'lodash';
 import { AppModService } from './services/app/app-mod.service';
 import { MaterialIconsService } from './services/icons/material-icons.service';
 
@@ -31,8 +31,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
 
     // Hack to remove modal when the HMR refresh
-    const elements = document.getElementsByClassName('cdk-overlay-container');
-    forEach(elements, (element: Element) => {
+    const elements: HTMLCollectionOf<Element> = document.getElementsByClassName('cdk-overlay-container');
+    _.forEach(elements, (element: Element) => {
       element.innerHTML = '';
     });
   }

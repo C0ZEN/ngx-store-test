@@ -6,13 +6,15 @@ import {
 
 import { ErrorViewNotFoundComponent } from './error-view-not-found.component';
 
-describe('ErrorViewNotFoundComponent', () => {
+describe('ErrorViewNotFoundComponent:', () => {
   let component: ErrorViewNotFoundComponent;
   let fixture: ComponentFixture<ErrorViewNotFoundComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorViewNotFoundComponent ]
+      declarations: [
+        ErrorViewNotFoundComponent
+      ]
     })
       .compileComponents();
   }));
@@ -20,10 +22,17 @@ describe('ErrorViewNotFoundComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ErrorViewNotFoundComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('before init', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+  });
+
+  describe('after init', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
   });
 });

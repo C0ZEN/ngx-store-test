@@ -8,6 +8,7 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NavbarLinks } from './data/navbar-links.data';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -47,6 +48,10 @@ describe('NavbarComponent:', () => {
   describe('after init', () => {
     beforeEach(() => {
       fixture.detectChanges();
+    });
+
+    it('should have a property "links" which is equal to const "NavbarLinks"', () => {
+      expect(component.links).toEqual(NavbarLinks);
     });
   });
 });

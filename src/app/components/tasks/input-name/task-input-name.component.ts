@@ -1,17 +1,15 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
   ViewChild
 } from '@angular/core';
 import {
   FormControl,
   Validators
 } from '@angular/forms';
-import { isNil } from 'lodash';
+import * as _ from 'lodash';
 import { TextValidatorModel } from '../../../models/validators/text/text-validator.model';
 
 @Component({
@@ -20,22 +18,23 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './task-input-name.component.scss' ]
 })
 export class TaskInputNameComponent extends TextValidatorModel implements OnInit {
-  public name: FormControl | undefined;
+  public formControl: FormControl = new FormControl(null, [
+    Validators.required,
+    Validators.minLength(this.minLength),
+    Validators.maxLength(this.maxLength)
+  ]);
+
+  @Input('taskInputNameDefault')
+  public defaultValue: string | undefined;
 
   @ViewChild('input', {
     read: ElementRef
   })
   public input: ElementRef | undefined;
 
-  @Input('taskInputNameDefault')
-  private defaultName: string | undefined;
-
-  @Output('taskInputNameFormControl')
-  private formControl: EventEmitter<FormControl> = new EventEmitter();
-
   public get value(): string {
-    if (!isNil(this.name) && !isNil(this.name.value)) {
-      return this.name.value;
+    if (!_.isNil(this.formControl.value)) {
+      return this.formControl.value;
     }
     return '';
   }
@@ -45,22 +44,15 @@ export class TaskInputNameComponent extends TextValidatorModel implements OnInit
   }
 
   public ngOnInit(): void {
-    this.name = new FormControl(this.defaultName, [
-      Validators.required,
-      Validators.minLength(this.minLength),
-      Validators.maxLength(this.maxLength)
-    ]);
-    this.formControl.emit(this.name);
+    this.formControl.setValue(this.defaultValue);
   }
 
   public clear(): void {
-    if (!isNil(this.name)) {
-      this.name.setValue(null);
-    }
+    this.formControl.setValue(null);
   }
 
   public focus(): void {
-    if (!isNil(this.input)) {
+    if (!_.isNil(this.input)) {
       this.input.nativeElement.focus();
     }
   }

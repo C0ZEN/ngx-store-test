@@ -4,10 +4,7 @@ import {
   CanActivate,
   RouterStateSnapshot
 } from '@angular/router';
-import {
-  isEmpty,
-  isString
-} from 'lodash';
+import * as _ from 'lodash';
 import { NGXLogger } from 'ngx-logger';
 import { TodosQuery } from '../../../../../stores/todos/todos.query';
 import { TodosService } from '../../../../../stores/todos/todos.service';
@@ -28,7 +25,8 @@ export class TodosTodoExistGuard implements CanActivate {
     routerStateSnapshot: RouterStateSnapshot
   ): boolean {
     const todoId: string | null = activatedRouteSnapshot.paramMap.get('todoId');
-    if (isString(todoId) && !isEmpty(todoId)) {
+
+    if (_.isString(todoId) && !_.isEmpty(todoId)) {
       const isTodoExist: boolean = this.todosQuery.hasEntity(todoId);
       if (isTodoExist) {
         return true;
@@ -36,6 +34,7 @@ export class TodosTodoExistGuard implements CanActivate {
       this.error(`could not find any todo with id "${todoId}"`);
       return false;
     }
+
     this.error(`parameter "todoId" is empty`);
     return false;
   }
