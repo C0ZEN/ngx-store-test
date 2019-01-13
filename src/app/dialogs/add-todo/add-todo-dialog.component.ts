@@ -23,7 +23,6 @@ import { AddTodoDialogCloseDataInterface } from './interfaces/add-todo-dialog-cl
 })
 export class AddTodoDialogComponent implements OnInit, AfterViewInit {
   public todo: TodoInterface | undefined;
-
   public todoForm: FormGroup | undefined;
 
   @ViewChild('todoInputName')
