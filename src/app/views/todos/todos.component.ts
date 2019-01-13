@@ -71,7 +71,7 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.addTodoDialog = this.matDialog.open(AddTodoDialogComponent);
 
     this.addTodoDialog.afterClosed().subscribe((value: AddTodoDialogCloseDataInterface | undefined) => {
-      if (!_.isNil(value) && !_.isNil(value.todo)) {
+      if (!_.isNil(value)) {
         this.todosService.add(value.todo);
         this.router.navigate([
           'todo',
