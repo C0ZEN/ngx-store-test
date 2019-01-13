@@ -15,6 +15,7 @@ import {
   MatInputModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as _ from 'lodash';
 import { TaskInputNameComponent } from './task-input-name.component';
 
 describe('TaskInputNameComponent:', () => {
@@ -132,6 +133,21 @@ describe('TaskInputNameComponent:', () => {
 
         expect(component.formControl.setValue).toHaveBeenCalledTimes(1);
         expect(component.formControl.setValue).toHaveBeenCalledWith(null);
+      });
+    });
+
+    describe('focus()', () => {
+      it('should call "focus" from "input.nativeElement" when "input" is not nil', () => {
+        component.input = {
+          nativeElement: {
+            focus: _.noop
+          }
+        };
+        spyOn(component.input.nativeElement, 'focus').and.stub();
+
+        component.focus();
+
+        expect(component.input.nativeElement.focus).toHaveBeenCalledTimes(1);
       });
     });
   });
