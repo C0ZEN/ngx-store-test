@@ -25,6 +25,7 @@ export class TodosTodoExistGuard implements CanActivate {
     routerStateSnapshot: RouterStateSnapshot
   ): boolean {
     const todoId: string | null = activatedRouteSnapshot.paramMap.get('todoId');
+
     if (_.isString(todoId) && !_.isEmpty(todoId)) {
       const isTodoExist: boolean = this.todosQuery.hasEntity(todoId);
       if (isTodoExist) {
@@ -33,6 +34,7 @@ export class TodosTodoExistGuard implements CanActivate {
       this.error(`could not find any todo with id "${todoId}"`);
       return false;
     }
+
     this.error(`parameter "todoId" is empty`);
     return false;
   }

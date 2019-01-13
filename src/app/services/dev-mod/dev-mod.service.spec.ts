@@ -11,7 +11,7 @@ describe('DevModService:', () => {
   describe('isDevMod()', () => {
     it('should return true', () => {
 
-      const isDevMod = devModService.isDevMod();
+      const isDevMod: boolean = devModService.isDevMod();
 
       expect(isDevMod).toBe(true);
     });

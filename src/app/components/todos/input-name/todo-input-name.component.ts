@@ -18,7 +18,7 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './todo-input-name.component.scss' ]
 })
 export class TodoInputNameComponent extends TextValidatorModel implements OnInit {
-  public formControl = new FormControl(null, [
+  public formControl: FormControl = new FormControl(null, [
     Validators.required,
     Validators.minLength(this.minLength),
     Validators.maxLength(this.maxLength)

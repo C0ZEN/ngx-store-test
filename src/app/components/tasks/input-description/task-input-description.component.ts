@@ -16,7 +16,7 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './task-input-description.component.scss' ]
 })
 export class TaskInputDescriptionComponent extends TextValidatorModel implements OnInit {
-  public maxLength = 200;
+  public maxLength: number = 200;
   public formControl: FormControl = new FormControl(null, [
     Validators.minLength(this.minLength),
     Validators.maxLength(this.maxLength)

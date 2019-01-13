@@ -10,7 +10,8 @@ import {
 } from '@angular/material';
 import {
   NavigationEnd,
-  Router
+  Router,
+  RouterEvent
 } from '@angular/router';
 import * as _ from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';

@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
 
     // Hack to remove modal when the HMR refresh
-    const elements = document.getElementsByClassName('cdk-overlay-container');
+    const elements: HTMLCollectionOf<Element> = document.getElementsByClassName('cdk-overlay-container');
     _.forEach(elements, (element: Element) => {
       element.innerHTML = '';
     });
