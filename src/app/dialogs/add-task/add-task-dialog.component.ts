@@ -67,7 +67,10 @@ export class AddTaskDialogComponent implements OnInit, AfterViewInit {
   public addTask(): void {
     if (!_.isNil(this.taskForm)) {
       this.matDialogRef.close({
-        task: _.merge({}, this.task, this.taskForm.getRawValue())
+        task: {
+          ...this.task,
+          ...this.taskForm.getRawValue()
+        }
       });
     }
   }

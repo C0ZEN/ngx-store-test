@@ -10,12 +10,11 @@
 
       <!-- Todo input name -->
       <app-todo-input-name #todoInputName
-                           (todoInputNameFormControl)="todoForm.addControl('name', $event)"
                            [todoInputNameDefault]="todo.name">
       </app-todo-input-name>
 
       <!-- Todo input description -->
-      <app-todo-input-description (todoInputDescriptionFormControl)="todoForm.addControl('description', $event)"
+      <app-todo-input-description #todoInputDescription
                                   [todoInputDescriptionDefault]="todo.description">
       </app-todo-input-description>
     </form>

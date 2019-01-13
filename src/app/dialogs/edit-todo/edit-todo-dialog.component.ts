@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import * as _ from 'lodash';
+import { TodoInputDescriptionComponent } from '../../components/todos/input-description/todo-input-description.component';
 import { TodoInputNameComponent } from '../../components/todos/input-name/todo-input-name.component';
 import { TodoInterface } from '../../stores/todos/todo.interface';
 import { TodosQuery } from '../../stores/todos/todos.query';
@@ -27,6 +28,9 @@ export class EditTodoDialogComponent implements OnInit, AfterViewInit {
 
   @ViewChild('todoInputName')
   public todoInputName: TodoInputNameComponent | undefined;
+
+  @ViewChild('todoInputDescription')
+  public todoInputDescription: TodoInputDescriptionComponent | undefined;
 
   public get name(): AbstractControl | null {
     if (!_.isNil(this.todoForm)) {
@@ -49,8 +53,14 @@ export class EditTodoDialogComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     setTimeout(() => {
-      if (!_.isNil(this.todoInputName)) {
-        this.todoInputName.focus();
+      if (!_.isNil(this.todoForm)) {
+        if (!_.isNil(this.todoInputName)) {
+          this.todoForm.addControl('name', this.todoInputName.formControl);
+          this.todoInputName.focus();
+        }
+        if (!_.isNil(this.todoInputDescription)) {
+          this.todoForm.addControl('description', this.todoInputDescription.formControl);
+        }
       }
     });
   }
@@ -58,7 +68,10 @@ export class EditTodoDialogComponent implements OnInit, AfterViewInit {
   public editTodo(): void {
     if (!_.isNil(this.todoForm)) {
       this.matDialogRef.close({
-        todo: _.merge({}, this.todo, this.todoForm.getRawValue())
+        todo: {
+          ...this.todo,
+          ...this.todoForm.getRawValue()
+        }
       });
     }
   }

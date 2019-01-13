@@ -10,8 +10,7 @@ import {
 } from '@angular/material';
 import {
   NavigationEnd,
-  Router,
-  RouterEvent
+  Router
 } from '@angular/router';
 import * as _ from 'lodash';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
@@ -35,8 +34,8 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
   public todo: TodoInterface | undefined;
   public isAvatarLoaded: boolean = false;
 
-  private selectActiveTodo: Subscription | undefined;
-  private routerEvents: Subscription | undefined;
+  private selectActiveTodoSubscription: Subscription | undefined;
+  private routerEventsSubscription: Subscription | undefined;
 
   private addTaskDialog: MatDialogRef<AddTaskDialogComponent, AddTaskDialogCloseDataInterface> | undefined;
   private editTodoDialog: MatDialogRef<EditTodoDialogComponent, EditTodoDialogCloseDataInterface> | undefined;
@@ -52,10 +51,11 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.selectActiveTodo = this.todosQuery.selectActive().subscribe((activeTodo: TodoInterface | undefined) => {
+    this.selectActiveTodoSubscription = this.todosQuery.selectActive().subscribe(activeTodo => {
       this.todo = activeTodo;
     });
-    this.routerEvents = this.router.events.subscribe(routerEvent => {
+
+    this.routerEventsSubscription = this.router.events.subscribe(routerEvent => {
       if (routerEvent instanceof NavigationEnd) {
         this.isAvatarLoaded = false;
       }
@@ -71,8 +71,9 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
 
   public addTask(): void {
     this.addTaskDialog = this.matDialog.open(AddTaskDialogComponent);
+
     this.addTaskDialog.afterClosed().subscribe((value: AddTaskDialogCloseDataInterface | undefined) => {
-      if (!_.isNil(value) && !_.isNil(value.task)) {
+      if (!_.isNil(value)) {
         this.tasksService.add(value.task);
         this.matSnackBar.open('Task added');
       }
@@ -81,8 +82,9 @@ export class TodosTodoComponent implements OnInit, OnDestroy {
 
   public editTodo(): void {
     this.editTodoDialog = this.matDialog.open(EditTodoDialogComponent);
+
     this.editTodoDialog.afterClosed().subscribe((value: EditTodoDialogCloseDataInterface | undefined) => {
-      if (!_.isNil(value) && !_.isNil(value.todo)) {
+      if (!_.isNil(value)) {
         this.todosService.edit(value.todo);
         this.matSnackBar.open('Todo edited');
       }
