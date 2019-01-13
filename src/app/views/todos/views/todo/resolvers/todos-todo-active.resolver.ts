@@ -15,8 +15,9 @@ export class TodosTodoActiveResolver implements Resolve<void> {
   ) {
   }
 
-  public resolve(route: ActivatedRouteSnapshot): void {
-    const todoId: string | null = route.paramMap.get('todoId');
+  public resolve(activatedRouteSnapshot: ActivatedRouteSnapshot): void {
+    const todoId: string | null = activatedRouteSnapshot.paramMap.get('todoId');
+
     if (_.isString(todoId) && !_.isEmpty(todoId)) {
       this.todosService.activate(todoId);
     }
