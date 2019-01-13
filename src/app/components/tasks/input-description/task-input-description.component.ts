@@ -25,7 +25,7 @@ export class TaskInputDescriptionComponent extends TextValidatorModel implements
   public defaultValue: string | undefined;
 
   @Output('taskInputDescriptionFormControl')
-  public formControlChange: EventEmitter<FormControl> = new EventEmitter();
+  public formControlChange = new EventEmitter<FormControl>();
 
   public get value(): string {
     if (!_.isNil(this.formControl) && !_.isNil(this.formControl.value)) {

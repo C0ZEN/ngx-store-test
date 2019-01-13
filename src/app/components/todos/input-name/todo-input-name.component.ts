@@ -26,7 +26,7 @@ export class TodoInputNameComponent extends TextValidatorModel implements OnInit
   public defaultValue: string | undefined;
 
   @Output('todoInputNameFormControl')
-  public formControlChange: EventEmitter<FormControl> = new EventEmitter();
+  public formControlChange = new EventEmitter<FormControl>();
 
   @ViewChild('input', {
     read: ElementRef

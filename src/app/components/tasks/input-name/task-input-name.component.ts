@@ -26,7 +26,7 @@ export class TaskInputNameComponent extends TextValidatorModel implements OnInit
   public defaultValue: string | undefined;
 
   @Output('taskInputNameFormControl')
-  public formControlChange: EventEmitter<FormControl> = new EventEmitter();
+  public formControlChange = new EventEmitter<FormControl>();
 
   @ViewChild('input', {
     read: ElementRef
