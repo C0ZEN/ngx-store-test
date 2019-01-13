@@ -21,9 +21,9 @@ export class TasksService {
   /**
    * Add task
    */
-  public add(todo: TaskInterface): void {
-    this.tasksStore.add(todo);
-    this.info(`task "${todo.id}" added`);
+  public add(task: TaskInterface): void {
+    this.tasksStore.add(task);
+    this.info(`task "${task.id}" added`);
   }
 
   /**
