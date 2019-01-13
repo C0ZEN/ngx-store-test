@@ -10,12 +10,11 @@
 
       <!-- Task input name -->
       <app-task-input-name #taskInputName
-                           (taskInputNameFormControl)="taskForm.addControl('name', $event)"
                            [taskInputNameDefault]="task.name">
       </app-task-input-name>
 
       <!-- Task input description -->
-      <app-task-input-description (taskInputDescriptionFormControl)="taskForm.addControl('description', $event)"
+      <app-task-input-description #taskInputDescription
                                   [taskInputDescriptionDefault]="task.description">
       </app-task-input-description>
     </form>

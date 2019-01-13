@@ -1,9 +1,7 @@
 import {
   Component,
-  EventEmitter,
   Input,
-  OnInit,
-  Output
+  OnInit
 } from '@angular/core';
 import {
   FormControl,
@@ -18,17 +16,17 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './todo-input-description.component.scss' ]
 })
 export class TodoInputDescriptionComponent extends TextValidatorModel implements OnInit {
-  public formControl: FormControl | undefined;
   public maxLength = 200;
+  public formControl = new FormControl(null, [
+    Validators.minLength(this.minLength),
+    Validators.maxLength(this.maxLength)
+  ]);
 
   @Input('todoInputDescriptionDefault')
   public defaultValue: string | undefined;
 
-  @Output('todoInputDescriptionFormControl')
-  public formControlChange = new EventEmitter<FormControl>();
-
   public get value(): string {
-    if (!_.isNil(this.formControl) && !_.isNil(this.formControl.value)) {
+    if (!_.isNil(this.formControl.value)) {
       return this.formControl.value;
     }
     return '';
@@ -39,16 +37,10 @@ export class TodoInputDescriptionComponent extends TextValidatorModel implements
   }
 
   public ngOnInit(): void {
-    this.formControl = new FormControl(this.defaultValue, [
-      Validators.minLength(this.minLength),
-      Validators.maxLength(this.maxLength)
-    ]);
-    this.formControlChange.emit(this.formControl);
+    this.formControl.setValue(this.defaultValue);
   }
 
   public clear(): void {
-    if (!_.isNil(this.formControl)) {
-      this.formControl.setValue(null);
-    }
+    this.formControl.setValue(null);
   }
 }

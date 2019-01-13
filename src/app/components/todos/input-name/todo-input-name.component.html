@@ -1,4 +1,4 @@
-<div *ngIf="name"
+<div *ngIf="formControl"
      class="todo-input-name-component">
   <mat-form-field>
 
@@ -7,7 +7,7 @@
 
     <!-- Input -->
     <input #input
-           [formControl]="name"
+           [formControl]="formControl"
            matInput
            placeholder="My shopping list"
            required
@@ -27,17 +27,17 @@
     <mat-hint align="end">{{ value.length }} / {{ maxLength }}</mat-hint>
 
     <!-- Errors -->
-    <mat-error *ngIf="name.errors?.minlength">
+    <mat-error *ngIf="formControl.errors?.minlength">
       Name must be at least
       <strong>{{ minLength }}</strong>
       characters long
     </mat-error>
-    <mat-error *ngIf="name.errors?.maxlength">
+    <mat-error *ngIf="formControl.errors?.maxlength">
       Name must be at most
       <strong>{{ maxLength }}</strong>
       characters long
     </mat-error>
-    <mat-error *ngIf="name.errors?.required">
+    <mat-error *ngIf="formControl.errors?.required">
       Name is
       <strong>required</strong>
     </mat-error>

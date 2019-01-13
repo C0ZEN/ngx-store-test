@@ -1,10 +1,8 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
   ViewChild
 } from '@angular/core';
 import {
@@ -20,13 +18,14 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './task-input-name.component.scss' ]
 })
 export class TaskInputNameComponent extends TextValidatorModel implements OnInit {
-  public formControl: FormControl | undefined;
+  public formControl: FormControl = new FormControl(null, [
+    Validators.required,
+    Validators.minLength(this.minLength),
+    Validators.maxLength(this.maxLength)
+  ]);
 
   @Input('taskInputNameDefault')
   public defaultValue: string | undefined;
-
-  @Output('taskInputNameFormControl')
-  public formControlChange = new EventEmitter<FormControl>();
 
   @ViewChild('input', {
     read: ElementRef
@@ -34,7 +33,7 @@ export class TaskInputNameComponent extends TextValidatorModel implements OnInit
   public input: ElementRef | undefined;
 
   public get value(): string {
-    if (!_.isNil(this.formControl) && !_.isNil(this.formControl.value)) {
+    if (!_.isNil(this.formControl.value)) {
       return this.formControl.value;
     }
     return '';
@@ -45,18 +44,11 @@ export class TaskInputNameComponent extends TextValidatorModel implements OnInit
   }
 
   public ngOnInit(): void {
-    this.formControl = new FormControl(this.defaultValue, [
-      Validators.required,
-      Validators.minLength(this.minLength),
-      Validators.maxLength(this.maxLength)
-    ]);
-    this.formControlChange.emit(this.formControl);
+    this.formControl.setValue(this.defaultValue);
   }
 
   public clear(): void {
-    if (!_.isNil(this.formControl)) {
-      this.formControl.setValue(null);
-    }
+    this.formControl.setValue(null);
   }
 
   public focus(): void {

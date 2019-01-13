@@ -1,10 +1,8 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
   ViewChild
 } from '@angular/core';
 import {
@@ -20,13 +18,14 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
   styleUrls: [ './todo-input-name.component.scss' ]
 })
 export class TodoInputNameComponent extends TextValidatorModel implements OnInit {
-  public name: FormControl | undefined;
+  public formControl = new FormControl(null, [
+    Validators.required,
+    Validators.minLength(this.minLength),
+    Validators.maxLength(this.maxLength)
+  ]);
 
   @Input('todoInputNameDefault')
   public defaultValue: string | undefined;
-
-  @Output('todoInputNameFormControl')
-  public formControlChange = new EventEmitter<FormControl>();
 
   @ViewChild('input', {
     read: ElementRef
@@ -34,8 +33,8 @@ export class TodoInputNameComponent extends TextValidatorModel implements OnInit
   public input: ElementRef | undefined;
 
   public get value(): string {
-    if (!_.isNil(this.name) && !_.isNil(this.name.value)) {
-      return this.name.value;
+    if (!_.isNil(this.formControl.value)) {
+      return this.formControl.value;
     }
     return '';
   }
@@ -45,18 +44,11 @@ export class TodoInputNameComponent extends TextValidatorModel implements OnInit
   }
 
   public ngOnInit(): void {
-    this.name = new FormControl(this.defaultValue, [
-      Validators.required,
-      Validators.minLength(this.minLength),
-      Validators.maxLength(this.maxLength)
-    ]);
-    this.formControlChange.emit(this.name);
+    this.formControl.setValue(this.defaultValue);
   }
 
   public clear(): void {
-    if (!_.isNil(this.name)) {
-      this.name.setValue(null);
-    }
+    this.formControl.setValue(null);
   }
 
   public focus(): void {
