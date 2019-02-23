@@ -15,7 +15,9 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
 @Component({
   selector: 'app-task-input-name',
   templateUrl: './task-input-name.component.html',
-  styleUrls: [ './task-input-name.component.scss' ]
+  styleUrls: [
+    './task-input-name.component.scss'
+  ]
 })
 export class TaskInputNameComponent extends TextValidatorModel implements OnInit {
   public formControl: FormControl = new FormControl(null, [

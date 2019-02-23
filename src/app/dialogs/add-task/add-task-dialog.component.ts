@@ -19,7 +19,9 @@ import { AddTaskDialogCloseDataInterface } from './interfaces/add-task-dialog-cl
 @Component({
   selector: 'app-add-task-dialog',
   templateUrl: './add-task-dialog.component.html',
-  styleUrls: [ './add-task-dialog.component.scss' ]
+  styleUrls: [
+    './add-task-dialog.component.scss'
+  ]
 })
 export class AddTaskDialogComponent implements OnInit, AfterViewInit {
   public task: TaskInterface | undefined;

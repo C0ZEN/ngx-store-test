@@ -13,7 +13,9 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
 @Component({
   selector: 'app-todo-input-description',
   templateUrl: './todo-input-description.component.html',
-  styleUrls: [ './todo-input-description.component.scss' ]
+  styleUrls: [
+    './todo-input-description.component.scss'
+  ]
 })
 export class TodoInputDescriptionComponent extends TextValidatorModel implements OnInit {
   public maxLength: number = 200;
