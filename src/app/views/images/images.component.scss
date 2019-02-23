@@ -1,5 +1,5 @@
-.todos-component {
-  .todos-toolbar-content {
+.images-component {
+  .images-toolbar-content {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -8,21 +8,16 @@
     height: 100%;
     max-width: 100%;
 
-    .todo-tab-list {
+    .links-tab-list {
       flex-shrink: 1;
 
       .mat-tab-group {
         overflow: hidden;
       }
     }
-
-    #new-todo-button {
-      flex-shrink: 0;
-      margin-left: 16px; // Same as mat-toolbar padding
-    }
   }
 
-  .todos-description-container {
+  .images-description-container {
     .actions-container {
       display: flex;
       flex-direction: row;

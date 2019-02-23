@@ -1,0 +1,49 @@
+<div class="images-component">
+
+  <!-- Toolbar -->
+  <app-toolbar>
+    <div class="images-toolbar-content">
+      <nav backgroundColor="primary"
+           class="links-tab-list tabs-fit-height"
+           color="primary"
+           mat-tab-nav-bar>
+        <a #rla="routerLinkActive"
+           *ngFor="let link of links"
+           [active]="rla.isActive"
+           [routerLink]="link.path"
+           mat-tab-link
+           routerLinkActive>
+          {{ link.label }}
+        </a>
+      </nav>
+    </div>
+  </app-toolbar>
+  <div class="content-container">
+
+    <!-- Images description -->
+    <div *ngIf="currentUrl === '/images'"
+         class="images-description-container">
+      <h1 class="mat-h1">Images views</h1>
+
+      <!-- TD;DR -->
+      <h3 class="mat-h3">TL;DR</h3>
+      <p class="mat-body">
+        These views allows you to test some features related to images display and optimization.
+      </p>
+
+      <!-- Loading -->
+      <h3 class="mat-h3">Loading</h3>
+      <h4 class="mat-h4">Blur Up technique</h4>
+      <p class="mat-body">
+        This feature is very good to always display images without having a server.
+        <br>
+        It will show a base64 super low quality image and then download asynchronously the real high quality image.
+        <br>
+        Once the high quality image is loaded, it will display it with a blur animation.
+      </p>
+    </div>
+
+    <!-- Children content -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

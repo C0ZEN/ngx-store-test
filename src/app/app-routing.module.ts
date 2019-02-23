@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: './views/todos/todos.module#TodosModule'
   },
   {
+    path: 'images',
+    loadChildren: './views/images/images.module#ImagesModule'
+  },
+  {
     path: 'error',
     loadChildren: './views/error/error.module#ErrorModule'
   },

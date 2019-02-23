@@ -8,5 +8,9 @@ export const NavbarLinks: NavbarLinkInterface[] = [
   {
     label: 'Todos',
     path: '/todos'
+  },
+  {
+    label: 'Images',
+    path: '/images'
   }
 ];

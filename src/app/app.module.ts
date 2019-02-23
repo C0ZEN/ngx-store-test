@@ -1,13 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import {
-  ErrorStateMatcher,
-  MAT_DIALOG_DEFAULT_OPTIONS,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatSnackBarConfig,
-  ShowOnDirtyErrorStateMatcher
-} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   LoggerModule,
@@ -21,6 +14,9 @@ import { AppDevModule } from './app.dev.module';
 import { AppProdModule } from './app.prod.module';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { DialogsModule } from './dialogs/dialogs.module';
+import { ErrorStateMatcherProvider } from './providers/error-state-matcher/error-state-matcher.provider';
+import { MatDialogProvider } from './providers/mat-dialog/mat-dialog.provider';
+import { MatSnackBarProvider } from './providers/mat-snack-bar/mat-snack-bar.provider';
 
 @NgModule({
   declarations: [
@@ -49,24 +45,9 @@ import { DialogsModule } from './dialogs/dialogs.module';
     DialogsModule
   ],
   providers: [
-    {
-      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
-      useValue: <MatSnackBarConfig>{
-        duration: 4000
-      }
-    },
-    {
-      provide: ErrorStateMatcher,
-      useClass: ShowOnDirtyErrorStateMatcher
-    },
-    {
-      provide: MAT_DIALOG_DEFAULT_OPTIONS,
-      useValue: {
-        hasBackdrop: true,
-        verticalPosition: 'top',
-        horizontalPosition: 'center'
-      }
-    }
+    MatSnackBarProvider,
+    ErrorStateMatcherProvider,
+    MatDialogProvider
   ],
   bootstrap: [
     AppComponent
