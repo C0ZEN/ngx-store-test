@@ -20,6 +20,6 @@ $ngx-store-test-theme: mat-light-theme($ngx-store-test-primary, $ngx-store-test-
 // that you are using.
 @include angular-material-theme($ngx-store-test-theme);
 
-@import 'buttons/buttons';
-@import 'dialog/dialog';
-@import 'tabs';
+@import 'buttons/material-buttons';
+@import 'dialogs/material-dialogs';
+@import 'tabs/material-tabs';
