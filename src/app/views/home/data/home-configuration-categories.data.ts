@@ -44,7 +44,7 @@ export const HomeConfigurationCategories: HomeConfigurationCategoryInterface[] =
       {
         label: 'Icons',
         description: 'This project is configured to use custom icons as SVG to increase customization and to reduce the size of the ' +
-          'bundle when you use ligatures.',
+          'bundle when you use ligatures. The current image theme is called "Material Two Tone".',
         icon: MaterialIconsEnum.CREATE_ICON
       }
     ]
