@@ -1,2 +1,18 @@
 <div class="images-blur-up-component">
+  <h2 class="mat-h2">Blur up directive</h2>
+  <h3 class="mat-h3">Default</h3>
+  <div appBlurUpImage
+       [appBlurUpImageBase64]="base64"
+       [appBlurUpImageSrc]="src">
+  </div>
+  <h3 class="mat-h3">Delay: 3000</h3>
+  <div appBlurUpImage
+       [appBlurUpImageBase64]="base64"
+       [appBlurUpImageSrc]="src"
+       [appBlurUpImageDelay]="3000">
+  </div>
+  <h3 class="mat-h3">No source</h3>
+  <div appBlurUpImage
+       [appBlurUpImageBase64]="base64">
+  </div>
 </div>
