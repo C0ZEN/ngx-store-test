@@ -20,6 +20,7 @@ import { AddTodoDialogComponent } from '../../dialogs/add-todo/add-todo-dialog.c
 import { AddTodoDialogCloseDataInterface } from '../../dialogs/add-todo/interfaces/add-todo-dialog-close-data.interface';
 import { RemoveAllTodosDialogCloseDataInterface } from '../../dialogs/remove-all-todos/interfaces/remove-all-todos-dialog-close-data.interface';
 import { RemoveAllTodosDialogComponent } from '../../dialogs/remove-all-todos/remove-all-todos-dialog.component';
+import { RouterService } from '../../services/router/router.service';
 import { TodoInterface } from '../../stores/todos/todo.interface';
 import { TodosQuery } from '../../stores/todos/todos.query';
 import { TodosService } from '../../stores/todos/todos.service';
@@ -45,7 +46,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   public constructor(
     private todosService: TodosService,
     private todosQuery: TodosQuery,
-    private router: Router,
+    private routerService: RouterService,
     private activatedRoute: ActivatedRoute,
     private matDialog: MatDialog,
     private matSnackBar: MatSnackBar
@@ -57,13 +58,11 @@ export class TodosComponent implements OnInit, OnDestroy {
       this.todos = allTodos;
     });
 
-    this.routerEventsSubscription = this.router.events.subscribe(routerEvent => {
-      if (routerEvent instanceof NavigationEnd) {
+    this.routerEventsSubscription = this.routerService.onNavigationEnd$().subscribe(routerEvent => {
         this.currentUrl = routerEvent.url;
-      }
     });
 
-    this.currentUrl = this.router.url;
+    this.currentUrl = this.routerService.getRouter().url;
   }
 
   public ngOnDestroy(): void {
@@ -75,7 +74,7 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.addTodoDialog.afterClosed().subscribe((value: AddTodoDialogCloseDataInterface | undefined) => {
       if (!_.isNil(value)) {
         this.todosService.add(value.todo);
-        this.router.navigate([
+        this.routerService.getRouter().navigate([
           'todo',
           value.todo.id
         ], {

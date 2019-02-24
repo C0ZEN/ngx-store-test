@@ -14,11 +14,14 @@ import {
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoggerModule } from 'ngx-logger';
 import { ToolbarModule } from '../../components/toolbar/toolbar.module';
+import { RouterService } from '../../services/router/router.service';
 import { ImagesComponent } from './images.component';
 
 describe('ImagesComponent:', () => {
   let component: ImagesComponent;
   let fixture: ComponentFixture<ImagesComponent>;
+
+  let routerService: RouterService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -47,6 +50,8 @@ describe('ImagesComponent:', () => {
   }));
 
   beforeEach(() => {
+    routerService = TestBed.get(RouterService);
+
     fixture = TestBed.createComponent(ImagesComponent);
     component = fixture.componentInstance;
   });

@@ -3,13 +3,10 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import {
-  NavigationEnd,
-  Router
-} from '@angular/router';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { Subscription } from 'rxjs';
 import { NavbarLinkInterface } from '../../components/navbar/interfaces/navbar-link.interface';
+import { RouterService } from '../../services/router/router.service';
 import { ImagesNavbarLinks } from './data/images-navbar-links.data';
 
 @AutoUnsubscribe()
@@ -27,18 +24,16 @@ export class ImagesComponent implements OnInit, OnDestroy {
   private routerEventsSubscription: Subscription | undefined;
 
   public constructor(
-    private router: Router
+    private routerService: RouterService
   ) {
   }
 
   public ngOnInit(): void {
-    this.routerEventsSubscription = this.router.events.subscribe(routerEvent => {
-      if (routerEvent instanceof NavigationEnd) {
-        this.currentUrl = routerEvent.url;
-      }
+    this.routerEventsSubscription = this.routerService.onNavigationEnd$().subscribe(routerEvent => {
+      this.currentUrl = routerEvent.url;
     });
 
-    this.currentUrl = this.router.url;
+    this.currentUrl = this.routerService.getRouter().url;
   }
 
   public ngOnDestroy(): void {
