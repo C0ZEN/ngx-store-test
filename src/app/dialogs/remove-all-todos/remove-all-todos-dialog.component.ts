@@ -8,7 +8,9 @@ import { RemoveAllTodosDialogCloseDataInterface } from './interfaces/remove-all-
 @Component({
   selector: 'app-remove-all-todos-dialog',
   templateUrl: './remove-all-todos-dialog.component.html',
-  styleUrls: [ './remove-all-todos-dialog.component.scss' ]
+  styleUrls: [
+    './remove-all-todos-dialog.component.scss'
+  ]
 })
 export class RemoveAllTodosDialogComponent implements OnInit {
   public constructor(

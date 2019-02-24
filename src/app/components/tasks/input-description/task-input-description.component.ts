@@ -13,7 +13,9 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
 @Component({
   selector: 'app-task-input-description',
   templateUrl: './task-input-description.component.html',
-  styleUrls: [ './task-input-description.component.scss' ]
+  styleUrls: [
+    './task-input-description.component.scss'
+  ]
 })
 export class TaskInputDescriptionComponent extends TextValidatorModel implements OnInit {
   public maxLength: number = 200;

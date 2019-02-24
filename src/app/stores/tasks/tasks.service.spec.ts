@@ -68,6 +68,7 @@ describe('TasksService:', () => {
       tasksService.reset();
 
       expect(tasksStore.reset).toHaveBeenCalledTimes(1);
+      expect(tasksStore.reset).toHaveBeenCalledWith();
     });
 
     it('should call "info" from "logger" with "TasksService: tasks store reset" as parameter', () => {
@@ -114,6 +115,7 @@ describe('TasksService:', () => {
 
     it('should return a new task with property "todoId" as active todo id by calling "getActive" from "todosQuery" and use the "id" returned', () => {
       expect(todosQuery.getActive).toHaveBeenCalledTimes(1);
+      expect(todosQuery.getActive).toHaveBeenCalledWith();
       expect(task.todoId).toEqual(TodoMock.id);
     });
   });

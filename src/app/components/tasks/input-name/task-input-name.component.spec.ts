@@ -148,6 +148,7 @@ describe('TaskInputNameComponent:', () => {
         component.focus();
 
         expect(component.input.nativeElement.focus).toHaveBeenCalledTimes(1);
+        expect(component.input.nativeElement.focus).toHaveBeenCalledWith();
       });
     });
   });

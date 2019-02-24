@@ -10,7 +10,9 @@ import { HomeFeaturesItemInterface } from './interfaces/home-features-item.inter
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: [ './home.component.scss' ]
+  styleUrls: [
+    './home.component.scss'
+  ]
 })
 export class HomeComponent implements OnInit {
   public configurationCategories: HomeConfigurationCategoryInterface[] = HomeConfigurationCategories;

@@ -15,7 +15,9 @@ import { TextValidatorModel } from '../../../models/validators/text/text-validat
 @Component({
   selector: 'app-todo-input-name',
   templateUrl: './todo-input-name.component.html',
-  styleUrls: [ './todo-input-name.component.scss' ]
+  styleUrls: [
+    './todo-input-name.component.scss'
+  ]
 })
 export class TodoInputNameComponent extends TextValidatorModel implements OnInit {
   public formControl: FormControl = new FormControl(null, [

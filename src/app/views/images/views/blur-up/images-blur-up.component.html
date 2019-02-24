@@ -1,0 +1,42 @@
+<div class="images-blur-up-component">
+  <h2 class="mat-h2">Blur up directive</h2>
+  <h3 class="mat-h3">Default</h3>
+  <div appBlurUpImageContainer>
+    <div appBlurUpImage
+         [appBlurUpImageBase64]="base64"
+         [appBlurUpImageSrc]="src">
+    </div>
+  </div>
+  <h3 class="mat-h3">Delay: 1500</h3>
+  <div appBlurUpImageContainer>
+    <div appBlurUpImage
+         [appBlurUpImageBase64]="base64"
+         [appBlurUpImageSrc]="src"
+         [appBlurUpImageDelay]="1500">
+    </div>
+  </div>
+  <h3 class="mat-h3">No source</h3>
+  <div appBlurUpImageContainer>
+    <div appBlurUpImage
+         [appBlurUpImageBase64]="base64">
+    </div>
+  </div>
+  <h3 class="mat-h3">No source</h3>
+  <div appBlurUpImageContainer>
+    <div appBlurUpImage
+         [appBlurUpImageBase64]="base64"
+         [appBlurUpImageSrc]="src"
+         [appBlurUpImageAutoLoad]="false">
+    </div>
+  </div>
+  <button mat-flat-button
+          (click)="loadLowQualityImage()"
+          color="primary">
+    Load low quality image
+  </button>
+  <button mat-flat-button
+          (click)="loadHighQualityImage()"
+          color="primary">
+    Load high quality image
+  </button>
+</div>

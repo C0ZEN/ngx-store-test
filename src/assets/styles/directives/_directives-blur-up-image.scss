@@ -1,0 +1,28 @@
+[appBlurUpImage] {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0) translate3d(0, 0, 0);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  &.app-blur-up-image-low-quality {
+
+  }
+
+  &.app-blur-up-image-high-quality {
+    animation-name: app-blur-up-image-sharpen;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes app-blur-up-image-sharpen {
+  from {
+    filter: blur(20px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}

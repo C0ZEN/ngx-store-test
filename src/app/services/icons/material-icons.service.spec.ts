@@ -32,6 +32,7 @@ describe('MaterialIconsService:', () => {
       materialIconsService.fetchIcons();
 
       expect(getIconsSpy).toHaveBeenCalledTimes(1);
+      expect(getIconsSpy).toHaveBeenCalledWith();
     });
 
     it('should call "addSvgIcon" from "matIconRegistry" for each icons', () => {

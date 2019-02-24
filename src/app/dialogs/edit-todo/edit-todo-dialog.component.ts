@@ -19,7 +19,9 @@ import { EditTodoDialogCloseDataInterface } from './interfaces/edit-todo-dialog-
 @Component({
   selector: 'app-edit-todo-dialog',
   templateUrl: './edit-todo-dialog.component.html',
-  styleUrls: [ './edit-todo-dialog.component.scss' ]
+  styleUrls: [
+    './edit-todo-dialog.component.scss'
+  ]
 })
 export class EditTodoDialogComponent implements OnInit, AfterViewInit {
   public todo: TodoInterface | undefined;

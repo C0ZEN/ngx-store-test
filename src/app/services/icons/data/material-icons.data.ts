@@ -39,6 +39,10 @@ export const MaterialIcons: MaterialIconsIconInterface[] = [
     name: MaterialIconsEnum.CHECKLIST,
     path: 'material/primary/icons8-checklist.svg'
   },
+  {
+    name: MaterialIconsEnum.PICTURE,
+    path: 'material/primary/icons8-picture.svg'
+  },
   // WHITE
   {
     name: MaterialIconsEnum.WHITE_ADD,

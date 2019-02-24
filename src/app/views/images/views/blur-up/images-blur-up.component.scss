@@ -1,0 +1,10 @@
+@import '../../../../../assets/styles/imports';
+
+.images-blur-up-component {
+  [appBlurUpImageContainer] {
+    height: 350px;
+    width: 600px;
+    border: 1px solid $color-primary;
+    box-sizing: border-box;
+  }
+}

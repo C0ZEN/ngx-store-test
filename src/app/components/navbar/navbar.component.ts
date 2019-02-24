@@ -8,7 +8,9 @@ import { NavbarLinkInterface } from './interfaces/navbar-link.interface';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: [ './navbar.component.scss' ]
+  styleUrls: [
+    './navbar.component.scss'
+  ]
 })
 export class NavbarComponent implements OnInit {
   public links: NavbarLinkInterface[] = NavbarLinks;

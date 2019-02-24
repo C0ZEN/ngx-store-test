@@ -3,7 +3,6 @@ import {
   ActiveState,
   EntityState,
   EntityStore,
-  getInitialActiveState,
   StoreConfig
 } from '@datorama/akita';
 import { TaskInterface } from './task.interface';
@@ -12,10 +11,12 @@ export interface TasksState extends EntityState<TaskInterface>, ActiveState {
 }
 
 const initialState: TasksState = {
-  ...getInitialActiveState()
+  active: null
 };
 
-@StoreConfig({ name: 'tasks' })
+@StoreConfig({
+  name: 'tasks'
+})
 @Injectable({
   providedIn: 'root'
 })

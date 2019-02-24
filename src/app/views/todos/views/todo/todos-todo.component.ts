@@ -28,7 +28,9 @@ import { TodosService } from '../../../../stores/todos/todos.service';
 @Component({
   selector: 'app-todos-todo',
   templateUrl: './todos-todo.component.html',
-  styleUrls: [ './todos-todo.component.scss' ]
+  styleUrls: [
+    './todos-todo.component.scss'
+  ]
 })
 export class TodosTodoComponent implements OnInit, OnDestroy {
   public todo: TodoInterface | undefined;

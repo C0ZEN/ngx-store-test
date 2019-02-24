@@ -3,7 +3,6 @@ import {
   ActiveState,
   EntityState,
   EntityStore,
-  getInitialActiveState,
   StoreConfig
 } from '@datorama/akita';
 import { TrackerInterface } from '../../interfaces/tracker.interface';
@@ -13,11 +12,13 @@ export interface TodosState extends EntityState<TodoInterface>, ActiveState, Tra
 }
 
 const initialState: TodosState = {
-  ...getInitialActiveState(),
+  active: null,
   currentTracker: 0
 };
 
-@StoreConfig({ name: 'todos' })
+@StoreConfig({
+  name: 'todos'
+})
 @Injectable({
   providedIn: 'root'
 })

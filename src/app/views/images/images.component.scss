@@ -1,0 +1,33 @@
+.images-component {
+  .images-toolbar-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+    max-width: 100%;
+
+    .links-tab-list {
+      flex-shrink: 1;
+
+      .mat-tab-group {
+        overflow: hidden;
+      }
+    }
+  }
+
+  .images-description-container {
+    .actions-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 16px;
+
+      button + button {
+        margin-left: 12px;
+      }
+    }
+  }
+}

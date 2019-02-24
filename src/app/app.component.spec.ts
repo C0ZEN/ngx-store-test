@@ -62,6 +62,7 @@ describe('AppComponent:', () => {
         component.ngOnInit();
 
         expect(materialIconsService.fetchIcons).toHaveBeenCalledTimes(1);
+        expect(materialIconsService.fetchIcons).toHaveBeenCalledWith();
       });
 
       it('should call "check" from "appModService" to check in what mod the app is', () => {
@@ -70,6 +71,7 @@ describe('AppComponent:', () => {
         component.ngOnInit();
 
         expect(appModService.check).toHaveBeenCalledTimes(1);
+        expect(appModService.check).toHaveBeenCalledWith();
       });
     });
 
