@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  AfterViewInit,
   Directive,
   ElementRef,
   Input,
@@ -13,7 +14,7 @@ import { BlurUpImageStylesEnum } from './enums/blur-up-image-styles.enum';
 @Directive({
   selector: '[appBlurUpImage]'
 })
-export class BlurUpImageDirective implements OnInit, AfterViewChecked {
+export class BlurUpImageDirective implements OnInit, AfterViewInit {
 
   @Input('appBlurUpImageBase64')
   public imgBase64: string | undefined;
@@ -38,7 +39,7 @@ export class BlurUpImageDirective implements OnInit, AfterViewChecked {
     this.showLowQualityImage();
   }
 
-  public ngAfterViewChecked(): void {
+  public ngAfterViewInit(): void {
     if (this.autoLoad) {
       setTimeout(() => {
         this.showHighQualityImage();
