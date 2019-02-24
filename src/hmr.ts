@@ -20,10 +20,13 @@ export const hmrBootstrap: any = (
     return hmrModule(mod, module);
   });
 
+  (window as any).hmrEnabled = true;
+
   module.hot.dispose(() => {
     const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
     const elements: any = appRef.components.map((c: any) => c.location.nativeElement);
     const makeVisible: Function = createNewHosts(elements);
     makeVisible();
+    (window as any).hmrEnabled = false;
   });
 };

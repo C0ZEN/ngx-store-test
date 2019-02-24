@@ -3,7 +3,10 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BlurUpImageContainerModule } from '../../../../directives/blur-up-image-container/blur-up-image-container.module';
+import { BlurUpImageModule } from '../../../../directives/blur-up-image/blur-up-image.module';
 import { ImagesBlurUpComponent } from './images-blur-up.component';
 
 describe('ImagesBlurUpComponent:', () => {
@@ -18,7 +21,14 @@ describe('ImagesBlurUpComponent:', () => {
       imports: [
 
         // Angular
-        RouterTestingModule
+        RouterTestingModule,
+
+        // Third parties
+        MatButtonModule,
+
+        // Internal
+        BlurUpImageModule,
+        BlurUpImageContainerModule
       ]
     })
       .compileComponents();
